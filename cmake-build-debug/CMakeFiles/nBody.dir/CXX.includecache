@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/linus/CLionProjects/nBody/body.h
+
+/Users/linus/CLionProjects/nBody/math_utils.cpp
+math_utils.h
+/Users/linus/CLionProjects/nBody/math_utils.h
+body.h
+/Users/linus/CLionProjects/nBody/body.h
+math.h
+-
+vector
+-
+iostream
+-
+omp.h
+-
+bits/stdc++.h
+-
+
+/Users/linus/CLionProjects/nBody/math_utils.h
+body.h
+/Users/linus/CLionProjects/nBody/body.h
+vector
+-
+
