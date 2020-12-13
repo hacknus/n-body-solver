@@ -19,8 +19,6 @@ vector
 -
 iostream
 -
-omp.h
--
 bits/stdc++.h
 -
 

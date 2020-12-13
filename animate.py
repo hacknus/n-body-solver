@@ -215,7 +215,7 @@ if ThreeD:
 
 gif = False
 mp4 = True  # True
-show = False
+show = True
 
 ax.set_aspect('equal')
 

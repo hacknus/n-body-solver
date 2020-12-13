@@ -18,6 +18,7 @@ int main() {
     cout << "GRAVITATIONAL N-BODY SOLVER \n";
     cout << " \n";
 
+    int steps = 50000;
 
     cout << "reading data... \n";
 
@@ -46,7 +47,7 @@ int main() {
 
     char filename[32]; // make sure it's big enough
 
-    for (int step = 0; step < 5000; step++) {
+    for (int step = 0; step < steps; step++) {
 
         dt = get_dt(bodies);
         t += dt;

@@ -7,7 +7,6 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
-#include <omp.h>
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -17,7 +16,7 @@ void calc_direct_force(vector<Body> &particles) {
     double softening = 0.01;
     double x, y, z;
     int counter = 0;
-    #pragma omp parallel for
+    #pragma omp parallel for schedule(auto) nowait
     //for (auto self = particles.begin(); self != particles.end(); ++self) {
     for (int self = 0; self < particles.size(); self++) {
         //cout << "calculating " << counter << "... \n";

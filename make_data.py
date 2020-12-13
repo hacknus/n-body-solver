@@ -7,7 +7,7 @@ def read_collision_data(filename="dubinski.tab"):
     header = ["m", "x", "y", "z", "vx", "vy", "vz"]
     df = pd.read_csv(filename, sep="\s", names=header, engine="python")
 
-    fac = 1 / 128
+    fac = 1 / 64
 
     subset = 81920 * fac
     subset /= 2
@@ -28,6 +28,7 @@ def read_collision_data(filename="dubinski.tab"):
     df["m"] = df.m * 1 / fac
     #df.reset_index(inplace=True)
     print(df.head())
+    print(f"saving {len(df)} objects to cdata.csv")
     df.to_csv("cdata.csv", index=False)
 
     out = []
