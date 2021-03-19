@@ -20,8 +20,6 @@ void write_file(vector<Body> bodies, char filename[], double dt, double t){
         outFile.write((char *) &bodies[index].vx, sizeof(double));
         outFile.write((char *) &bodies[index].vy, sizeof(double));
         outFile.write((char *) &bodies[index].vz, sizeof(double));
-        outFile.write((char *) &bodies[index].ekin, sizeof(double));
-        outFile.write((char *) &bodies[index].epot, sizeof(double));
         outFile.write((char *) &dt, sizeof(double));
         outFile.write((char *) &t, sizeof(double));
     }
@@ -59,7 +57,7 @@ vector<Body> read_initial(void) {
             row.push_back(stod(lineStream, &sz)); // convert to double
         }
         Body b = Body();
-        b.init(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+        init_body(&b, row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
         bodies.push_back(b);
     }
 

@@ -5,27 +5,13 @@
 #ifndef NBODY_BODY_H
 #define NBODY_BODY_H
 
-
-class Body {
-public:
-    Body();
-
-    void init(double, double, double, double, double, double, double);
-
+struct Body {
     double m;
     double x, y, z;
     double vx, vy, vz;
     double ax, ay, az;
-
-    // calculated scalars
-    double r;
-    double ekin;
-    double epot;
-
-    double softening;
-    double potential;
-
 };
 
+void init_body(Body *b, double _m, double _x, double _y, double _z, double _vx, double _vy, double _vz);
 
 #endif //NBODY_BODY_H

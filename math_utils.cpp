@@ -16,15 +16,14 @@ void calc_direct_force(vector<Body> &particles) {
     double softening = 0.01;
     double x, y, z;
     int counter = 0;
-    #pragma omp parallel for schedule(auto) nowait
-    //for (auto self = particles.begin(); self != particles.end(); ++self) {
+
     for (int self = 0; self < particles.size(); self++) {
         //cout << "calculating " << counter << "... \n";
         counter++;
         particles[self].ax = 0;
         particles[self].ay = 0;
         particles[self].az = 0;
-        //for (auto partner = particles.begin(); partner != particles.end(); ++partner) {
+
         for (int partner = 0; partner < particles.size(); partner++) {
             if (self != partner) {
                 x = particles[self].x - particles[partner].x;
@@ -36,9 +35,9 @@ void calc_direct_force(vector<Body> &particles) {
                         G * particles[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
                 particles[self].az -=
                         G * particles[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                particles[self].epot +=
-                        G * particles[partner].m * particles[self].m /
-                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
+//                particles[self].epot +=
+//                        G * particles[partner].m * particles[self].m /
+//                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
             }
         }
     }
@@ -58,7 +57,7 @@ void leapfrog(vector<Body> &particles, double dt) {
         self->vx = self->vx + self->ax * dt;
         self->vy = self->vy + self->ay * dt;
         self->vz = self->vz + self->az * dt;
-        self->ekin = 0.5 * self->m * (pow(self->vx, 2) + pow(self->vy, 2) + pow(self->vz, 2));
+        // self->ekin = 0.5 * self->m * (pow(self->vx, 2) + pow(self->vy, 2) + pow(self->vz, 2));
         self->x = self->x + self->vx * 0.5 * dt;
         self->y = self->y + self->vy * 0.5 * dt;
         self->z = self->z + self->vz * 0.5 * dt;
