@@ -8,23 +8,27 @@
 
 /Users/linus/CLionProjects/nBody/body.h
 
-/Users/linus/CLionProjects/nBody/math_utils.cpp
-math_utils.h
-/Users/linus/CLionProjects/nBody/math_utils.h
-body.h
-/Users/linus/CLionProjects/nBody/body.h
-math.h
+/Users/linus/CLionProjects/nBody/io.cpp
+io.h
+/Users/linus/CLionProjects/nBody/io.h
+
+/Users/linus/CLionProjects/nBody/io.h
+iterator
 -
-vector
+fstream
 -
 iostream
 -
-bits/stdc++.h
+sstream
 -
-
-/Users/linus/CLionProjects/nBody/math_utils.h
-body.h
-/Users/linus/CLionProjects/nBody/body.h
 vector
 -
+algorithm
+-
+string
+-
+math.h
+-
+body.h
+/Users/linus/CLionProjects/nBody/body.h
 

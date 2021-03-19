@@ -13,20 +13,20 @@ class Planet:
 
     def __init__(self, df):
         self.x = [float(df["x"])]
-        self.y = [float(df["z"])]
-        self.z = [float(df["y"])]
+        self.y = [float(df["y"])]
+        self.z = [float(df["z"])]
         self.m = float(df["m"])
-        self.dt = [float(df["dt"])]
-        self.t = [float(df["t"])]
+        # self.dt = [float(df["dt"])]
+        # self.t = [float(df["t"])]
         self.color = self.get_color()
         self.color = "yellow"
 
     def add(self, df):
         self.x.append(float(df["x"]))
-        self.y.append(float(df["z"]))
-        self.z.append(float(df["y"]))
-        self.dt.append(float(df["dt"]))
-        self.t.append(float(df["t"]))
+        self.y.append(float(df["y"]))
+        self.z.append(float(df["z"]))
+        # self.dt.append(float(df["dt"]))
+        # self.t.append(float(df["t"]))
 
     def get_color(self):
         if self.y[0] > 0:
@@ -39,7 +39,7 @@ def read_binary(path):
     # path = "out_10.bin"
     x = np.fromfile(path, dtype=np.float64)
 
-    x = x.reshape((640, 11))
+    x = x.reshape((x.shape[0]//9, 9))
 
     d = {"m": x[:, 0],
          "x": x[:, 1],
@@ -48,10 +48,10 @@ def read_binary(path):
          "vx": x[:, 4],
          "vy": x[:, 5],
          "vz": x[:, 6],
-         "ekin": x[:, 7],
-         "epot": x[:, 8],
-         "dt": x[:, 9],
-         "t": x[:, 10],
+         # "ekin": x[:, 7],
+         # "epot": x[:, 8],
+         # "dt": x[:, 9],
+         # "t": x[:, 10],
          }
     df = pd.DataFrame(data=d)
     ##	print(df.head())
@@ -74,10 +74,10 @@ j = 0
 ThreeD = False
 
 while True:
-    if not os.path.exists(f'output/out_{j:05d}.bin'):
+    if not os.path.exists(f'output/out_{j:05d}.dat'):
         break
     print(f'reading out_{j:05d}.bin')
-    master_file = f'output/out_{j:05d}.bin'
+    master_file = f'output/out_{j:05d}.dat'
 
     # if j >= 100:
     #     break
@@ -98,12 +98,12 @@ else:
     print("found {} files".format(j))
 
 j = len(planets[0].x)
-planets = planets[::10]
+planets = planets[::1]
 
 print("found {} objects".format(len(planets)))
 
-plt.plot(range(len(planets[0].dt)), planets[0].dt)
-plt.savefig("dt.png")
+# plt.plot(range(len(planets[0].dt)), planets[0].dt)
+# plt.savefig("dt.png")
 
 fig = plt.figure()
 
@@ -149,8 +149,8 @@ def animate(i):
     y = []
     z = []
     counter = 0
-    print("T + {}".format(planets[0].t[i]))
-    ax.set_title("T + {:.4f}".format(planets[0].t[i]), color="white", fontsize=4)
+    # print("T + {}".format(planets[0].t[i]))
+    # ax.set_title("T + {:.4f}".format(planets[0].t[i]), color="white", fontsize=4)
     for line, pt, planet in zip(lines, pts, data):
 
         x = planet.x[i]  # planet[0][i]
@@ -206,8 +206,8 @@ ax.set_ylim(8, 10)
 
 x = np.max([abs(p.x[0]) for p in planets])
 y = np.max([abs(p.y[0]) for p in planets])
-ax.set_xlim(-1.5 * x, 1.5 * x)
-ax.set_ylim(-1.5 * y, 1.5 * y)
+ax.set_xlim(-1 * x, 1 * x)
+ax.set_ylim(-1 * y, 1 * y)
 
 if ThreeD:
     ax.set_zlim(-size, size)
@@ -215,7 +215,7 @@ if ThreeD:
 
 gif = False
 mp4 = True  # True
-show = True
+show = False
 
 ax.set_aspect('equal')
 
@@ -227,12 +227,12 @@ ani = animation.FuncAnimation(fig, animate, init_func=init,
 # save animation
 if gif:
     print("saving gif...")
-    ani.save('galaxy.gif', savefig_kwargs={'facecolor': 'black'}, writer='imagemagick', dpi=100)
+    ani.save('output/galaxy.gif', savefig_kwargs={'facecolor': 'black'}, writer='imagemagick', dpi=100)
 if mp4:
     # needs ffmpeg to be installed
     mywriter = animation.FFMpegWriter(fps=24)
     print("saving mp4...")
-    ani.save('galaxy.mp4', savefig_kwargs={'facecolor': 'black'}, writer=mywriter, dpi=600)
+    ani.save('output/galaxy.mp4', savefig_kwargs={'facecolor': 'black'}, writer=mywriter, dpi=600)
 if show:
     print("showing")
     plt.show()

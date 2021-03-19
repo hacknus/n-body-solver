@@ -12,8 +12,14 @@ CMakeFiles/nBody.dir/main.cpp.o: ../body.h
 CMakeFiles/nBody.dir/main.cpp.o: ../io.h
 CMakeFiles/nBody.dir/main.cpp.o: ../main.cpp
 CMakeFiles/nBody.dir/main.cpp.o: ../math_utils.h
+CMakeFiles/nBody.dir/main.cpp.o: /usr/local/include/mpi.h
+CMakeFiles/nBody.dir/main.cpp.o: /usr/local/include/mpi_portable_platform.h
+CMakeFiles/nBody.dir/main.cpp.o: /usr/local/include/omp.h
 
 CMakeFiles/nBody.dir/math_utils.cpp.o: ../body.h
 CMakeFiles/nBody.dir/math_utils.cpp.o: ../math_utils.cpp
 CMakeFiles/nBody.dir/math_utils.cpp.o: ../math_utils.h
+CMakeFiles/nBody.dir/math_utils.cpp.o: /usr/local/include/mpi.h
+CMakeFiles/nBody.dir/math_utils.cpp.o: /usr/local/include/mpi_portable_platform.h
+CMakeFiles/nBody.dir/math_utils.cpp.o: /usr/local/include/omp.h
 

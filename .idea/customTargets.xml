@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="921841f6-1cab-439d-80a2-b9731aabc917" name="MPI" defaultType="TOOL">
+      <configuration id="69f229f0-3fbf-458d-bc91-6834b81bd96f" name="MPI" toolchainName="Default">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_mpic++" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>

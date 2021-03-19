@@ -7,34 +7,34 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
+#include <mpi.h>
 #include <bits/stdc++.h>
+#include <algorithm> // Necessary for `std::copy`...
 
 using namespace std;
 
-void calc_direct_force(vector<Body> &particles) {
-    double G = 1;
-    double softening = 0.01;
+void calc_direct_force(vector<Body> &bodies, int a, int b) {
+    double G = 6.67408e-11;
+    double softening = 0.0001;
     double x, y, z;
-    int counter = 0;
 
-    for (int self = 0; self < particles.size(); self++) {
-        //cout << "calculating " << counter << "... \n";
-        counter++;
-        particles[self].ax = 0;
-        particles[self].ay = 0;
-        particles[self].az = 0;
+    for (int self = a; self < b; self++) {
 
-        for (int partner = 0; partner < particles.size(); partner++) {
+        bodies[self].ax = 0;
+        bodies[self].ay = 0;
+        bodies[self].az = 0;
+
+        for (int partner = 0; partner < bodies.size(); partner++) {
             if (self != partner) {
-                x = particles[self].x - particles[partner].x;
-                y = particles[self].y - particles[partner].y;
-                z = particles[self].z - particles[partner].z;
-                particles[self].ax -=
-                        G * particles[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                particles[self].ay -=
-                        G * particles[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                particles[self].az -=
-                        G * particles[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                x = bodies[self].x - bodies[partner].x;
+                y = bodies[self].y - bodies[partner].y;
+                z = bodies[self].z - bodies[partner].z;
+                bodies[self].ax -=
+                        G * bodies[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                bodies[self].ay -=
+                        G * bodies[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                bodies[self].az -=
+                        G * bodies[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
 //                particles[self].epot +=
 //                        G * particles[partner].m * particles[self].m /
 //                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
@@ -43,43 +43,62 @@ void calc_direct_force(vector<Body> &particles) {
     }
 }
 
-void leapfrog(vector<Body> &particles, double dt) {
+void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type) {
+    int a = bodies.size() / num_procs * myid;
+    int b = bodies.size() / num_procs * (myid + 1);
 
-    for (auto self = particles.begin(); self != particles.end(); ++self) {
-        self->x = self->x + self->vx * 0.5 * dt;
-        self->y = self->y + self->vy * 0.5 * dt;
-        self->z = self->z + self->vz * 0.5 * dt;
+    for (int i = a; i < b; i++) {
+        bodies[i].x = bodies[i].x + bodies[i].vx * 0.5 * dt;
+        bodies[i].y = bodies[i].y + bodies[i].vy * 0.5 * dt;
+        bodies[i].z = bodies[i].z + bodies[i].vz * 0.5 * dt;
     }
 
-    calc_direct_force(particles);
+    const int tag = 13;
+    if (myid == 0) {
+        MPI_Status status;
+        for (int proc = 1; proc < num_procs; proc++) {
+            vector<Body> recv;
+            recv.resize(b - a);
+            MPI_Recv(&recv.front(), recv.size(), mpi_body_type, proc, tag, MPI_COMM_WORLD, &status);
+            copy(recv.begin(), recv.end(), bodies.begin() + bodies.size() / num_procs * proc);
+        }
+    } else {
+        vector<Body> send;
+        send = vector<Body>(bodies.begin() + a, bodies.begin() + b);
+        MPI_Send(&send.front(), send.size(), mpi_body_type, 0, tag, MPI_COMM_WORLD);
+    }
 
-    for (auto self = particles.begin(); self != particles.end(); ++self) {
-        self->vx = self->vx + self->ax * dt;
-        self->vy = self->vy + self->ay * dt;
-        self->vz = self->vz + self->az * dt;
+    MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
+
+    calc_direct_force(bodies, a, b);
+
+    for (int i = a; i < b; i++) {
+        bodies[i].vx = bodies[i].vx + bodies[i].ax * dt;
+        bodies[i].vy = bodies[i].vy + bodies[i].ay * dt;
+        bodies[i].vz = bodies[i].vz + bodies[i].az * dt;
         // self->ekin = 0.5 * self->m * (pow(self->vx, 2) + pow(self->vy, 2) + pow(self->vz, 2));
-        self->x = self->x + self->vx * 0.5 * dt;
-        self->y = self->y + self->vy * 0.5 * dt;
-        self->z = self->z + self->vz * 0.5 * dt;
+        bodies[i].x = bodies[i].x + bodies[i].vx * 0.5 * dt;
+        bodies[i].y = bodies[i].y + bodies[i].vy * 0.5 * dt;
+        bodies[i].z = bodies[i].z + bodies[i].vz * 0.5 * dt;
     }
 
 }
 
-double get_dt(vector<Body> &particles) {
+double get_dt(vector<Body> &bodies, int a, int b) {
 
-    unsigned int n_p = particles.size();
-    double dt[n_p];
+    double dt[b-a];
     int index = 0;
     double softening = 0.01;
     double min_dt = 0.001;
+    double min_dt_out = 0.001;
     double a_mag = 0;
-    for (Body &p : particles) {
-        a_mag = pow(pow(p.ax, 2) + pow(p.ay, 2) + pow(p.az, 2), 0.5);
-        dt[index] = 0.1 * sqrt(softening / a_mag);
+    for (int i = a; i < b; i++) {
+        a_mag = pow(pow(bodies[i].ax, 2) + pow(bodies[i].ay, 2) + pow(bodies[i].az, 2), 0.5);
+        dt[i-a] = 0.1 * sqrt(softening / a_mag);
         index++;
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);
     min_dt = *min_element(dt, dt + n_dt);
-    cout << "dt: " << min_dt << "\n";
-    return min_dt;
+    MPI_Allreduce(&min_dt, &min_dt_out, 1, MPI_DOUBLE, MPI_MIN, MPI_COMM_WORLD);
+    return min_dt_out;
 }

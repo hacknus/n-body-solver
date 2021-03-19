@@ -3,9 +3,8 @@
 //
 
 #include "io.h"
-#include "body.h"
 
-void write_file(vector<Body> bodies, char filename[], double dt, double t){
+void write_file(vector<Body> bodies, char filename[], double dt, double t) {
 
     cout << "writing " << filename << "\n";
     int n = bodies.size();
@@ -26,12 +25,12 @@ void write_file(vector<Body> bodies, char filename[], double dt, double t){
     outFile.close();
 }
 
-vector<Body> read_initial(void) {
+vector<Body> read_initial(string path) {
     ifstream csvFile;
-    csvFile.open("../cdata.csv");
+    csvFile.open(path);
 
     if (!csvFile.is_open()) {
-        cout << "no such file." << endl;
+        cout << "no such file:" << path << endl;
         exit(EXIT_FAILURE);
     }
 
@@ -39,8 +38,8 @@ vector<Body> read_initial(void) {
     string line;
     vector<string> vec;
     getline(csvFile, line); // skip the 1st line
-
     while (getline(csvFile, line)) {
+
         if (line.empty()) // skip empty lines:
         {
             //cout << "empty line!" << endl;
@@ -53,19 +52,28 @@ vector<Body> read_initial(void) {
 
         vector<double> row;
 
+        uint32_t counter = 0;
         while (getline(iss, lineStream, ',')) {
+            counter++;
+            if (counter == 1) continue;
             row.push_back(stod(lineStream, &sz)); // convert to double
         }
+        float au = 1.5e11;
+        float m_sol = 2e30;
+        float day = 24.0 * 60.0 * 60.0;
+
         Body b = Body();
-        init_body(&b, row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+        init_body(&b, row[0] * m_sol,
+                  row[1] * au, row[2] * au, row[3] * au,
+                  row[4] * au / day, row[5] * au / day, row[6] * au / day);
         bodies.push_back(b);
     }
 
-    //cout << "size ts = " << timeStampIMU.size() << endl;
-    for (size_t i = 0; i < bodies.size(); i++) {
-        cout << "mass = " << bodies[i].m << endl;
-        cout << "--------------------------------" << endl;
-    }
+    // cout << "size ts = " << timeStampIMU.size() << endl;
+    //    for (size_t i = 0; i < bodies.size(); i++) {
+    //        cout << "mass = " << bodies[i].m << endl;
+    //        cout << "--------------------------------" << endl;
+    //    }
 
     return bodies;
 }

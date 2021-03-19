@@ -7,14 +7,15 @@
 
 #include "body.h"
 #include <vector>
+#include <mpi.h>
 
 using namespace std;
 
-void calc_direct_force(vector<Body> &particles);
+void calc_direct_force(vector<Body> &bodies, int a, int b);
 
-void leapfrog(vector<Body> &particles, double dt);
+void leapfrog(vector<Body> &bodies, double dt, int num_procs, int my_id, MPI_Datatype mpi_body_type);
 
-double get_dt(vector<Body> &particles);
+double get_dt(vector<Body> &particles, int a, int b);
 
 
 #endif //NBODY_MATH_UTILS_H

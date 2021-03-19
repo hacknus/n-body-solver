@@ -144,6 +144,7 @@ nBody: CMakeFiles/nBody.dir/body.cpp.o
 nBody: CMakeFiles/nBody.dir/io.cpp.o
 nBody: CMakeFiles/nBody.dir/math_utils.cpp.o
 nBody: CMakeFiles/nBody.dir/build.make
+nBody: /usr/local/lib/libmpi.dylib
 nBody: CMakeFiles/nBody.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable nBody"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nBody.dir/link.txt --verbose=$(VERBOSE)
