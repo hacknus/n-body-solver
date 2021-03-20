@@ -59,7 +59,7 @@ planets = []
 j = 0
 
 while True:
-    if j % 100 == 0:
+    if j % 10 == 0:
         if not os.path.exists(f'output/out_{j:07d}.dat'):
             break
         print(f'reading out_{j:07d}.bin')
@@ -72,16 +72,15 @@ while True:
             for i in range(len(df)):
                 planets[i].add(df.loc[i])
     j += 1
-    if j > 100000:
-        break
+
 if j == 0:
     print("no files found, exiting...")
     exit()
 else:
     print("found {} files".format(j))
 
-comets = range(10,len(planets))
-j_orbit = 365 * 12 // 100
+comets = range(10, len(planets))
+j_orbit = 365 * 12 // 10
 orbits = range(0, len(planets[0].x), j_orbit)
 tisserand = np.zeros((len(comets), len(orbits)))
 ind = 0
@@ -99,6 +98,11 @@ for body_i in comets:
         ind_orb += 1
     ind += 1
 plt.plot(range(len(orbits)), tisserand.T)
+plt.plot(range(len(orbits)), np.mean(tisserand, axis=0), color="black", ls="--")
+print(f"T_mean = {np.mean(tisserand[:, -1], axis=0):.2f} +/- {np.std(tisserand[:, -1], axis=0):.2f}")
+plt.axhline(2, color="red", ls="--")
+plt.axhline(3, color="red", ls="--")
+plt.ylim(0, 5)
 plt.xlabel(r"$n$ Jupiter Orbits")
 plt.ylabel(r"$T_{Jupiter}$")
 plt.show()
