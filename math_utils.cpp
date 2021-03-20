@@ -24,20 +24,24 @@ void calc_direct_force(vector<Body> &bodies, int a, int b) {
         bodies[self].ay = 0;
         bodies[self].az = 0;
 
-        for (int partner = 0; partner < bodies.size(); partner++) {
-            if (self != partner) {
-                x = bodies[self].x - bodies[partner].x;
-                y = bodies[self].y - bodies[partner].y;
-                z = bodies[self].z - bodies[partner].z;
-                bodies[self].ax -=
-                        G * bodies[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                bodies[self].ay -=
-                        G * bodies[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                bodies[self].az -=
-                        G * bodies[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-//                particles[self].epot +=
-//                        G * particles[partner].m * particles[self].m /
-//                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
+        // here we cheat: only the interactions with the first 9 bodies are calculated (planets)
+        // comet to comet interactions are neglected.
+        // for (int partner = 0; partner < bodies.size(); partner++) {
+        for (int partner = 0; partner < 9; partner++) {
+                if (self != partner) {
+                    x = bodies[self].x - bodies[partner].x;
+                    y = bodies[self].y - bodies[partner].y;
+                    z = bodies[self].z - bodies[partner].z;
+                    bodies[self].ax -=
+                            G * bodies[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                    bodies[self].ay -=
+                            G * bodies[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                    bodies[self].az -=
+                            G * bodies[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                    //                particles[self].epot +=
+                    //                        G * particles[partner].m * particles[self].m /
+                    //                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
+                }
             }
         }
     }
