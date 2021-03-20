@@ -1,9 +1,5 @@
-from sys import argv
-from scipy.io import FortranFile
 import numpy as np
 import matplotlib.pyplot as plt
-import mpl_toolkits.mplot3d.axes3d as p3
-import matplotlib.animation as animation
 import sys
 import os
 import pandas as pd
@@ -52,17 +48,21 @@ def read_binary(path):
 def T(a, i, e):
     au = 1.5e11
     a_j = 5.204 * au
-    return a_j / a + 2 * np.cos(i) * np.sqrt(a / a_j * (1 - e ^ 2))
+    return a_j / a + 2 * np.cos(i) * np.sqrt(a / a_j * (1 - e ** 2))
+
+
+def ellipse(x, a, b):
+    return b * np.sqrt(1 - x / a ** 2)
 
 
 planets = []
 j = 0
 
 while True:
-    if not os.path.exists(f'output/out_{j:05d}.dat'):
+    if not os.path.exists(f'output/out_{j:07d}.dat'):
         break
-    print(f'reading out_{j:05d}.bin')
-    master_file = f'output/out_{j:05d}.dat'
+    print(f'reading out_{j:07d}.bin')
+    master_file = f'output/out_{j:07d}.dat'
 
     if j % 100 == 0:
         df = read_binary(master_file)
@@ -73,13 +73,33 @@ while True:
             for i in range(len(df)):
                 planets[i].add(df.loc[i])
     j += 1
+    if j > 100000:
+        break
 if j == 0:
     print("no files found, exiting...")
     exit()
 else:
     print("found {} files".format(j))
 
-body_i = 30
-plt.plot(planets[body_i].x, planets[body_i].y)
-plt.axis("equal")
+comets = range(10,len(planets))
+j_orbit = 365 * 12 // 100
+orbits = range(0, len(planets[0].x), j_orbit)
+tisserand = np.zeros((len(comets), len(orbits)))
+ind = 0
+for body_i in comets:
+    ind_orb = 0
+    for i in orbits:
+        x = np.array(planets[body_i].x[i:i + j_orbit])
+        y = np.array(planets[body_i].y[i:i + j_orbit])
+        r = np.sqrt(x ** 2 + y ** 2)
+        a = (np.min(r) + np.max(r)) / 2
+        b = np.sqrt(np.min(r) * np.max(r))
+        e = np.sqrt(1 - (b / a) ** 2)
+        print(f"a: {a}, b: {b}, e: {e:.4f}")
+        tisserand[ind, ind_orb] = T(a, 0, e)
+        ind_orb += 1
+    ind += 1
+plt.plot(range(len(orbits)), tisserand.T)
+plt.xlabel(r"$n$ Jupiter Orbits")
+plt.ylabel(r"$T_{Jupiter}$")
 plt.show()
