@@ -6,7 +6,6 @@
 #include "body.h"
 #include <math.h>
 #include <vector>
-#include <iostream>
 #include <mpi.h>
 #include <algorithm> // Necessary for `std::copy`...
 
