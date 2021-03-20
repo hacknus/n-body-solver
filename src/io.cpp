@@ -15,6 +15,7 @@ void write_file(vector<Body> bodies, char filename[], double dt, double t) {
     fstream outFile;
     outFile.open(filename, ios::out | ios::binary);
     for (index = 0; index < n; index++) {
+        // TODO: save name as well
         outFile.write((char *) &bodies[index].m, sizeof(double));
         outFile.write((char *) &bodies[index].x, sizeof(double));
         outFile.write((char *) &bodies[index].y, sizeof(double));
