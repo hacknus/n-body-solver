@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/linus/CLionProjects/nBody/main.cpp" "/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles/nBody.dir/main.cpp.o"
   "/Users/linus/CLionProjects/nBody/math_utils.cpp" "/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles/nBody.dir/math_utils.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

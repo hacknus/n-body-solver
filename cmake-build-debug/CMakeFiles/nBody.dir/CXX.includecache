@@ -6,7 +6,15 @@
 
 #IncludeRegexTransform: 
 
+/Users/linus/CLionProjects/nBody/body.cpp
+body.h
 /Users/linus/CLionProjects/nBody/body.h
+
+/Users/linus/CLionProjects/nBody/body.h
+
+/Users/linus/CLionProjects/nBody/io.cpp
+io.h
+/Users/linus/CLionProjects/nBody/io.h
 
 /Users/linus/CLionProjects/nBody/io.h
 iterator

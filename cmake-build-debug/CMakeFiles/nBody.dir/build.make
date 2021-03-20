@@ -80,54 +80,54 @@ include CMakeFiles/nBody.dir/flags.make
 CMakeFiles/nBody.dir/main.cpp.o: CMakeFiles/nBody.dir/flags.make
 CMakeFiles/nBody.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/nBody.dir/main.cpp.o"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/main.cpp.o -c /Users/linus/CLionProjects/nBody/main.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/main.cpp.o -c /Users/linus/CLionProjects/nBody/main.cpp
 
 CMakeFiles/nBody.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nBody.dir/main.cpp.i"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/main.cpp > CMakeFiles/nBody.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/main.cpp > CMakeFiles/nBody.dir/main.cpp.i
 
 CMakeFiles/nBody.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nBody.dir/main.cpp.s"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/main.cpp -o CMakeFiles/nBody.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/main.cpp -o CMakeFiles/nBody.dir/main.cpp.s
 
 CMakeFiles/nBody.dir/body.cpp.o: CMakeFiles/nBody.dir/flags.make
 CMakeFiles/nBody.dir/body.cpp.o: ../body.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/nBody.dir/body.cpp.o"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/body.cpp.o -c /Users/linus/CLionProjects/nBody/body.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/body.cpp.o -c /Users/linus/CLionProjects/nBody/body.cpp
 
 CMakeFiles/nBody.dir/body.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nBody.dir/body.cpp.i"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/body.cpp > CMakeFiles/nBody.dir/body.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/body.cpp > CMakeFiles/nBody.dir/body.cpp.i
 
 CMakeFiles/nBody.dir/body.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nBody.dir/body.cpp.s"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/body.cpp -o CMakeFiles/nBody.dir/body.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/body.cpp -o CMakeFiles/nBody.dir/body.cpp.s
 
 CMakeFiles/nBody.dir/io.cpp.o: CMakeFiles/nBody.dir/flags.make
 CMakeFiles/nBody.dir/io.cpp.o: ../io.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/nBody.dir/io.cpp.o"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/io.cpp.o -c /Users/linus/CLionProjects/nBody/io.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/io.cpp.o -c /Users/linus/CLionProjects/nBody/io.cpp
 
 CMakeFiles/nBody.dir/io.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nBody.dir/io.cpp.i"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/io.cpp > CMakeFiles/nBody.dir/io.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/io.cpp > CMakeFiles/nBody.dir/io.cpp.i
 
 CMakeFiles/nBody.dir/io.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nBody.dir/io.cpp.s"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/io.cpp -o CMakeFiles/nBody.dir/io.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/io.cpp -o CMakeFiles/nBody.dir/io.cpp.s
 
 CMakeFiles/nBody.dir/math_utils.cpp.o: CMakeFiles/nBody.dir/flags.make
 CMakeFiles/nBody.dir/math_utils.cpp.o: ../math_utils.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/linus/CLionProjects/nBody/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/nBody.dir/math_utils.cpp.o"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/math_utils.cpp.o -c /Users/linus/CLionProjects/nBody/math_utils.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nBody.dir/math_utils.cpp.o -c /Users/linus/CLionProjects/nBody/math_utils.cpp
 
 CMakeFiles/nBody.dir/math_utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nBody.dir/math_utils.cpp.i"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/math_utils.cpp > CMakeFiles/nBody.dir/math_utils.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/linus/CLionProjects/nBody/math_utils.cpp > CMakeFiles/nBody.dir/math_utils.cpp.i
 
 CMakeFiles/nBody.dir/math_utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nBody.dir/math_utils.cpp.s"
-	/usr/local/Cellar/gcc/10.2.0.reinstall/bin/g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/math_utils.cpp -o CMakeFiles/nBody.dir/math_utils.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/linus/CLionProjects/nBody/math_utils.cpp -o CMakeFiles/nBody.dir/math_utils.cpp.s
 
 # Object files for target nBody
 nBody_OBJECTS = \

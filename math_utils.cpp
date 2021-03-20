@@ -8,7 +8,6 @@
 #include <vector>
 #include <iostream>
 #include <mpi.h>
-#include <bits/stdc++.h>
 #include <algorithm> // Necessary for `std::copy`...
 
 using namespace std;
