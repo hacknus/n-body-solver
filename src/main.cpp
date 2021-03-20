@@ -18,9 +18,9 @@ int main(int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
 
     if (myid == 0) {
-        cout << "|---------------------------------|\n";
-        cout << "|---GRAVITATIONAL N-BODY SOLVER---|\n";
-        cout << "|---------------------------------|\n";
+        cout << "|-------------------------------------------|\n";
+        cout << "|--------GRAVITATIONAL N-BODY SOLVER--------|\n";
+        cout << "|-------------------------------------------|\n";
     }
 
     vector<Body>::size_type index = 0;
@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
     if (myid == 0) {
         cout << "[OK] found " << size << " bodies found" << "\n";
         cout << "[OK] starting simulation for " << num_steps << " steps \n";
-        cout << "\n-------------------------------------------------------------------\n\n";
+        cout << "\n|-------------------------------------------|\n\n";
     }
 
     // calculate forces (accelerations) once in order to determine initial time-step
@@ -89,6 +89,9 @@ int main(int argc, char **argv) {
             write_file(bodies, filename, dt, t);
         }
     }
+
+    if (myid == 0) cout << "[OK] simulation completed after " << num_steps << " steps \n";
+    if (myid == 0) cout << "\n|-------------------------------------------|\n\n";
 
     MPI_Type_free(&mpi_body_type);
     MPI_Finalize();
