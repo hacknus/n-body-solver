@@ -54,6 +54,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
         bodies[i].z = bodies[i].z + bodies[i].vz * 0.5 * dt;
     }
 
+    // gather all partial body slices from sub-processes on root-process
     const int tag = 13;
     if (myid == 0) {
         MPI_Status status;
@@ -69,6 +70,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
         MPI_Send(&send.front(), send.size(), mpi_body_type, 0, tag, MPI_COMM_WORLD);
     }
 
+    // distribute combined body slices to all sub-processes from root-processes
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
 
     calc_direct_force(bodies, a, b);
@@ -100,6 +102,7 @@ double get_dt(vector<Body> &bodies, int a, int b) {
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);
     min_dt = *min_element(dt, dt + n_dt);
+    // gather minimum of min_dt and distribute to all processes in min_dt_out
     MPI_Allreduce(&min_dt, &min_dt_out, 1, MPI_DOUBLE, MPI_MIN, MPI_COMM_WORLD);
     return min_dt_out;
 }
