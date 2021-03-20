@@ -51,36 +51,20 @@ int main(int argc, char **argv) {
 
     MPI_Bcast(&size, 1, MPI_UNSIGNED, 0, MPI_COMM_WORLD);
     if (myid != 0) bodies.resize(size);
-
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
 
     MPI_Bcast(&num_steps, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
 
-
-    int n = bodies.size();
-
     if (myid == 0){
-        cout << "[OK] found " << n << " bodies found" << "\n";
+        cout << "[OK] found " << size << " bodies found" << "\n";
         cout << "[OK] starting simulation for " << num_steps << " steps \n";
         cout << "\n-------------------------------------------------------------------\n\n";
     }
 
-
+    calc_direct_force(bodies, 0, bodies.size());
 
     int a = bodies.size() / num_procs * myid;
     int b = bodies.size() / num_procs * (myid + 1);
-
-
-    calc_direct_force(bodies, 0, bodies.size());
-
-//    cout << "ax: " << bodies[0].ax << "\n";
-//    cout << "ay: " << bodies[0].ay << "\n";
-//    cout << "az: " << bodies[0].az << "\n";
-//
-//    cout << "ax: " << bodies[1].ax << "\n";
-//    cout << "ay: " << bodies[1].ay << "\n";
-//    cout << "az: " << bodies[1].az << "\n";
-
     double dt = get_dt(bodies, a, b);
     double t = 0;
 
