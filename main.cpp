@@ -72,12 +72,12 @@ int main(int argc, char **argv) {
 
     for (int step = 0; step < num_steps; step++) {
         dt = get_dt(bodies, a, b);
-        if (myid == 0) cout << "dt: " << dt << "\n";
         dt = 24*60*60;
         t += dt;
         leapfrog(bodies, dt, num_procs, myid, mpi_body_type);
 
         if ((myid == 0) && (step % 10 == 0)){
+            if (myid == 0) cout << "dt: " << dt << "\n";
             snprintf(filename, sizeof(filename), "../output/out_%07d.dat", step);
             write_file(bodies, filename, dt, t);
         }
