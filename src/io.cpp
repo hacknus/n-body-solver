@@ -2,7 +2,7 @@
 // Created by Linus on 11.12.20.
 //
 
-#include "../inc/io.h"
+#include "io.h"
 
 void write_file(vector<Body> bodies, char filename[], double dt, double t) {
 

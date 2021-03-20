@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 project(nbody)
+include_directories(inc)
 
 set(CMAKE_CXX_STANDARD 14)
 add_executable(nbody src/main.cpp src/body.cpp inc/body.h src/io.cpp inc/io.h src/math_utils.cpp inc/math_utils.h)
