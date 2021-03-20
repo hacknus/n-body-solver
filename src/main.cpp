@@ -59,7 +59,9 @@ int main(int argc, char **argv) {
 
     if (myid == 0) {
         cout << "[OK] found " << size << " bodies found" << "\n";
-        cout << "[OK] starting simulation for " << num_steps << " steps \n";
+        cout << "[OK] starting simulation: \n"
+                "     for " << num_steps << " steps \n "
+                "     on " << num_procs << " cores. \n";
         cout << "\n|-------------------------------------------|\n\n";
     }
 
@@ -73,6 +75,7 @@ int main(int argc, char **argv) {
 
     char filename[32]; // make sure it's big enough
 
+    // begin simulation
     for (int step = 0; step < num_steps; step++) {
         dt = get_dt(bodies, a, b);
         dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
