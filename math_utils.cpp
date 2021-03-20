@@ -42,7 +42,7 @@ void calc_direct_force(vector<Body> &bodies, int a, int b) {
                     //                        G * particles[partner].m * particles[self].m /
                     //                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
                 }
-            }
+
         }
     }
 }
