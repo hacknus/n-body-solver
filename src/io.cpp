@@ -58,7 +58,8 @@ vector<Body> read_initial(string path) {
         uint32_t counter = 0;
         while (getline(iss, lineStream, ',')) {
             counter++;
-            if (counter == 1) continue;
+            if (counter == 1) continue; //skip first entry (name of object, not a double)
+            // TODO: save name in bodies vector and eventually in binary .dat output.
             row.push_back(stod(lineStream, &sz)); // convert to double
         }
         float au = 1.5e11;
