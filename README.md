@@ -5,5 +5,5 @@ A simple implementation of an n-body-solver written in c++ by using direct force
 This program was developed on CLion on macOS and uses openMPI to parallelise the calculation.
 Run it using command line arguments for number of steps and path of input file:
 ```
--np 4 nBody 1000000 ../input/solar_jfc.dat
+mpirun -np 4 nbody 1000000 ../input/solar_jfc.dat
 ```
