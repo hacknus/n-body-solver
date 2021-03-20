@@ -59,12 +59,11 @@ planets = []
 j = 0
 
 while True:
-    if not os.path.exists(f'output/out_{j:07d}.dat'):
-        break
-    print(f'reading out_{j:07d}.bin')
-    master_file = f'output/out_{j:07d}.dat'
-
     if j % 100 == 0:
+        if not os.path.exists(f'output/out_{j:07d}.dat'):
+            break
+        print(f'reading out_{j:07d}.bin')
+        master_file = f'output/out_{j:07d}.dat'
         df = read_binary(master_file)
         if j == 0:
             for i in range(len(df)):

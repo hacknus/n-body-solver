@@ -112,7 +112,7 @@ int main(int argc, char **argv) {
         t += dt;
         leapfrog(bodies, dt, num_procs, myid, mpi_body_type);
 
-        if (myid == 0){
+        if ((myid == 0) && (step % 100 == 0)){
             snprintf(filename, sizeof(filename), "../output/out_%07d.dat", step);
             write_file(bodies, filename, dt, t);
         }
