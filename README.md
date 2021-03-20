@@ -1,6 +1,6 @@
 # n-body-solver in c++
 
-A simple implementation of an n-body-solver written in c++ by using direct force calculation. Leapfrog is used to propagate in time.
+A simple implementation of an n-body-solver written in c++ by using direct force calculation. Leapfrog is used as an integrating scheme.
 
 This program was developed on CLion (with CMake) on macOS and uses [openMPI](https://www.open-mpi.org) to parallelise the calculation.
 Run it using command line arguments for number of steps and path of input file:
