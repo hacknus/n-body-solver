@@ -28,7 +28,7 @@ vector<Body> read_initial(string path) {
     csvFile.open(path);
 
     if (!csvFile.is_open()) {
-        cout << "no such file:" << path << endl;
+        cout << "[ERROR] no such file: '" << path << "'!\n";
         exit(EXIT_FAILURE);
     }
 
