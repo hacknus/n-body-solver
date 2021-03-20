@@ -84,7 +84,7 @@ int main(int argc, char **argv) {
             // important:   the slice of the bodies that are distributed to the root process are already dt/2
             //              propagated further than all the others. This deviation is minimal and
             //              not visible when plotting the orbits.
-            cout << "[OK] step: " << step << " completed.\n";
+            cout << "[OK] step " << step << "/" << num_steps << " completed.\n";
             snprintf(filename, sizeof(filename), "../output/out_%07d.dat", step);
             write_file(bodies, filename, dt, t);
         }
