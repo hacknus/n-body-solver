@@ -84,6 +84,12 @@ j_orbit = 365 * 12 // 10
 orbits = range(0, len(planets[0].x), j_orbit)
 tisserand = np.zeros((len(comets), len(orbits)))
 ind = 0
+# for body_i in comets:
+#     x = np.array(planets[body_i].x[:j_orbit])
+#     y = np.array(planets[body_i].y[:j_orbit])
+#     plt.plot(x,y)
+# plt.show()
+
 for body_i in comets:
     ind_orb = 0
     for i in orbits:
