@@ -5,8 +5,6 @@
 #include "io.h"
 
 void write_file(vector<Body> bodies, char filename[], double dt, double t) {
-
-    cout << "writing " << filename << "\n";
     int n = bodies.size();
     int index = 0;
     fstream outFile;

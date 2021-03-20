@@ -18,9 +18,9 @@ int main(int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
 
     if (myid == 0) {
-        cout << "\n";
-        cout << "GRAVITATIONAL N-BODY SOLVER \n";
-        cout << "\n";
+        cout << "|---------------------------------|\n";
+        cout << "|---GRAVITATIONAL N-BODY SOLVER---|\n";
+        cout << "|---------------------------------|\n";
     }
 
     vector<Body>::size_type index = 0;
@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     if (myid == 0) {
         // only root process reads the input file
 
-        if (argc < 3){
+        if (argc < 3) {
             cout << "[ERROR] no input file/step number specified! \n";
             cout << "        correct usage: mpirun -np $num_cores nBody $path_to_input_file $num_steps \n";
             exit(EXIT_FAILURE);
@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 
         cout << "[OK] root is reading input data from " << argv[2] << "\n";
         char *pCh;
-        num_steps = strtoul (argv[1], &pCh, 10);
+        num_steps = strtoul(argv[1], &pCh, 10);
 
         bodies = read_initial(argv[2]);
     }
@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
     // broadcast number of steps to integrate from root-process to sub-processes
     MPI_Bcast(&num_steps, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
 
-    if (myid == 0){
+    if (myid == 0) {
         cout << "[OK] found " << size << " bodies found" << "\n";
         cout << "[OK] starting simulation for " << num_steps << " steps \n";
         cout << "\n-------------------------------------------------------------------\n\n";
@@ -75,16 +75,16 @@ int main(int argc, char **argv) {
 
     for (int step = 0; step < num_steps; step++) {
         dt = get_dt(bodies, a, b);
-        dt = 24*60*60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
+        dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;
         leapfrog(bodies, dt, num_procs, myid, mpi_body_type);
 
-        if ((myid == 0) && (step % 10 == 0)){
+        if ((myid == 0) && (step % 10 == 0)) {
             // only root process saves all the data
             // important:   the slice of the bodies that are distributed to the root process are already dt/2
             //              propagated further than all the others. This deviation is minimal and
             //              not visible when plotting the orbits.
-            if (myid == 0) cout << "dt: " << dt << "\n";
+            cout << "[OK] step: " << step << " completed.\n";
             snprintf(filename, sizeof(filename), "../output/out_%07d.dat", step);
             write_file(bodies, filename, dt, t);
         }

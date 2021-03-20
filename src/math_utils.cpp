@@ -25,20 +25,20 @@ void calc_direct_force(vector<Body> &bodies, int a, int b) {
         // comet to comet interactions are neglected.
         // for (int partner = 0; partner < bodies.size(); partner++) {
         for (int partner = 0; partner < 9; partner++) {
-                if (self != partner) {
-                    x = bodies[self].x - bodies[partner].x;
-                    y = bodies[self].y - bodies[partner].y;
-                    z = bodies[self].z - bodies[partner].z;
-                    bodies[self].ax -=
-                            G * bodies[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                    bodies[self].ay -=
-                            G * bodies[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                    bodies[self].az -=
-                            G * bodies[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
-                    //                particles[self].epot +=
-                    //                        G * particles[partner].m * particles[self].m /
-                    //                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
-                }
+            if (self != partner) {
+                x = bodies[self].x - bodies[partner].x;
+                y = bodies[self].y - bodies[partner].y;
+                z = bodies[self].z - bodies[partner].z;
+                bodies[self].ax -=
+                        G * bodies[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                bodies[self].ay -=
+                        G * bodies[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                bodies[self].az -=
+                        G * bodies[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 1.5);
+                //                particles[self].epot +=
+                //                        G * particles[partner].m * particles[self].m /
+                //                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
+            }
 
         }
     }
@@ -89,7 +89,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
 
 double get_dt(vector<Body> &bodies, int a, int b) {
 
-    double dt[b-a];
+    double dt[b - a];
     int index = 0;
     double softening = 0.01;
     double min_dt = 0.001;
@@ -97,7 +97,7 @@ double get_dt(vector<Body> &bodies, int a, int b) {
     double a_mag = 0;
     for (int i = a; i < b; i++) {
         a_mag = pow(pow(bodies[i].ax, 2) + pow(bodies[i].ay, 2) + pow(bodies[i].az, 2), 0.5);
-        dt[i-a] = 0.1 * sqrt(softening / a_mag);
+        dt[i - a] = 0.1 * sqrt(softening / a_mag);
         index++;
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);
