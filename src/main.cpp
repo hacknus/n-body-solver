@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
 
         if (argc < 3) {
             cout << "[ERROR] no input file/step number specified! \n";
-            cout << "        correct usage: mpirun -np $num_cores nBody $path_to_input_file $num_steps \n";
+            cout << "        correct usage: mpirun -np $num_cores nBody $num_steps $path_to_input_file \n";
             exit(EXIT_FAILURE);
         }
 
