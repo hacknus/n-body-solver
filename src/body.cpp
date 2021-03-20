@@ -2,7 +2,7 @@
 // Created by Linus on 11.12.20.
 //
 
-#include "body.h"
+#include "../inc/body.h"
 
 void init_body(Body *b, double _m, double _x, double _y, double _z, double _vx, double _vy, double _vz) {
     b->m = _m;

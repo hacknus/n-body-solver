@@ -2,8 +2,8 @@
 // Created by Linus on 11.12.20.
 //
 
-#include "math_utils.h"
-#include "body.h"
+#include "../inc/math_utils.h"
+#include "../inc/body.h"
 #include <math.h>
 #include <vector>
 #include <mpi.h>

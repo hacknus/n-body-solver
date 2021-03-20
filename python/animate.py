@@ -74,10 +74,10 @@ j = 0
 ThreeD = False
 
 while True:
-    if not os.path.exists(f'output/out_{j:05d}.dat'):
+    if not os.path.exists(f'../output/out_{j:05d}.dat'):
         break
     print(f'reading out_{j:05d}.bin')
-    master_file = f'output/out_{j:05d}.dat'
+    master_file = f'../output/out_{j:05d}.dat'
 
     # if j >= 100:
     #     break

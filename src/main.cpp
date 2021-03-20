@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "body.h"
-#include "math_utils.h"
-#include "io.h"
+#include "../inc/body.h"
+#include "../inc/math_utils.h"
+#include "../inc/io.h"
 #include <mpi.h>
 
 using namespace std;
