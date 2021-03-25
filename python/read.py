@@ -79,15 +79,16 @@ else:
     print("found {} files".format(j))
 
 comets = range(10, len(planets))
-j_orbit = 365 * 12 // 10
+num_orbits = 2
+j_orbit = 365 * 12 // 10 * num_orbits
 orbits = range(0, len(planets[0].x), j_orbit)
 tisserand = np.zeros((len(comets), len(orbits)))
 ind = 0
-# for body_i in comets:
-#     x = np.array(planets[body_i].x[:j_orbit])
-#     y = np.array(planets[body_i].y[:j_orbit])
-#     plt.plot(x,y)
-# plt.show()
+for body_i in comets:
+    x = np.array(planets[body_i].x[:j_orbit])
+    y = np.array(planets[body_i].y[:j_orbit])
+    plt.plot(x, y)
+plt.show()
 
 for body_i in comets:
     ind_orb = 0
@@ -102,12 +103,20 @@ for body_i in comets:
         tisserand[ind, ind_orb] = T(a, 0, e)
         ind_orb += 1
     ind += 1
-plt.plot(range(len(orbits)), tisserand.T)
-plt.plot(range(len(orbits)), np.mean(tisserand, axis=0), color="black", ls="--")
+plt.plot(np.arange(len(orbits)) * num_orbits, tisserand.T)
+plt.plot(np.arange(len(orbits)) * num_orbits, np.mean(tisserand, axis=0), color="black", ls="--")
 print(f"T_mean = {np.mean(tisserand[:, -1], axis=0):.2f} +/- {np.std(tisserand[:, -1], axis=0):.2f}")
 plt.axhline(2, color="red", ls="--")
 plt.axhline(3, color="red", ls="--")
 plt.ylim(0, 5)
 plt.xlabel(r"$n$ Jupiter Orbits")
 plt.ylabel(r"$T_{Jupiter}$")
-plt.show()
+plt.savefig("comets_rev.pdf")
+plt.clf()
+plt.plot(np.arange(len(orbits)) * num_orbits, np.mean(tisserand, axis=0), color="black", ls="--")
+plt.axhline(2, color="red", ls="--")
+plt.axhline(3, color="red", ls="--")
+plt.ylim(0, 5)
+plt.xlabel(r"$n$ Jupiter Orbits")
+plt.ylabel(r"$T_{Jupiter}$")
+plt.savefig("comets_mean_rev.pdf")
