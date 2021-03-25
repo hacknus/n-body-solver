@@ -1,0 +1,708 @@
+id,spkid,full_name,pdes,name,prefix
+c00003_0,1000504,"    3D/Biela",3D,Biela,D
+c00004_0,1000026,"    4P/Faye",4P,Faye,P
+c00005_0,1000505,"    5D/Brorsen",5D,Brorsen,D
+c00006_0,1000017,"    6P/d'Arrest",6P,d'Arrest,P
+c00007_0,1000069,"    7P/Pons-Winnecke",7P,Pons-Winnecke,P
+c00009_0,1000093,"    9P/Tempel 1",9P,Tempel,P
+c00010_0,1000094,"   10P/Tempel 2",10P,Tempel,P
+c00011_0,1000368,"   11P/Tempel-Swift-LINEAR",11P,Tempel-Swift-LINEAR,P
+c00014_0,1000110,"   14P/Wolf",14P,Wolf,P
+c00015_0,1000027,"   15P/Finlay",15P,Finlay,P
+c00016_0,1000008,"   16P/Brooks 2",16P,Brooks,P
+c00017_0,1000044,"   17P/Holmes",17P,Holmes,P
+c00018_0,1000144,"   18D/Perrine-Mrkos",18D,Perrine-Mrkos,D
+c00019_0,1000005,"   19P/Borrelly",19P,Borrelly,P
+c00021_0,1000032,"   21P/Giacobini-Zinner",21P,Giacobini-Zinner,P
+c00022_0,1000054,"   22P/Kopff",22P,Kopff,P
+c00024_0,1000077,"   24P/Schaumasse",24P,Schaumasse,P
+c00025_0,1000064,"   25D/Neujmin 2",25D,Neujmin,D
+c00026_0,1000034,"   26P/Grigg-Skjellerup",26P,Grigg-Skjellerup,P
+c00028_0,1000063,"   28P/Neujmin 1",28P,Neujmin,P
+c00029_0,1000079,"   29P/Schwassmann-Wachmann 1",29P,Schwassmann-Wachmann,P
+c00030_0,1000070,"   30P/Reinmuth 1",30P,Reinmuth,P
+c00031_0,1000080,"   31P/Schwassmann-Wachmann 2",31P,Schwassmann-Wachmann,P
+c00032_0,1000015,"   32P/Comas Sola",32P,"Comas Sola",P
+c00033_0,1000018,"   33P/Daniel",33P,Daniel,P
+c00034_0,1000284,"   34D/Gale",34D,Gale,D
+c00036_0,1000105,"   36P/Whipple",36P,Whipple,P
+c00037_0,1000028,"   37P/Forbes",37P,Forbes,P
+c00040_0,1000101,"   40P/Vaisala 1",40P,Vaisala,P
+c00041_0,1000100,"   41P/Tuttle-Giacobini-Kresak",41P,Tuttle-Giacobini-Kresak,P
+c00042_0,1000065,"   42P/Neujmin 3",42P,Neujmin,P
+c00043_0,1000111,"   43P/Wolf-Harrington",43P,Wolf-Harrington,P
+c00044_0,1000071,"   44P/Reinmuth 2",44P,Reinmuth,P
+c00045_0,1000045,"   45P/Honda-Mrkos-Pajdusakova",45P,Honda-Mrkos-Pajdusakova,P
+c00046_0,1000109,"   46P/Wirtanen",46P,Wirtanen,P
+c00047_0,1000003,"   47P/Ashbrook-Jackson",47P,Ashbrook-Jackson,P
+c00048_0,1000049,"   48P/Johnson",48P,Johnson,P
+c00049_0,1000002,"   49P/Arend-Rigaux",49P,Arend-Rigaux,P
+c00050_0,1000001,"   50P/Arend",50P,Arend,P
+c00051_0,1000038,"   51P/Harrington",51P,Harrington,P
+c00051_a,1000363,"   51P/Harrington-A",51P-A,Harrington,P
+c00051_d,1003396,"   51P/Harrington-D",51P-D,Harrington,P
+c00052_0,1000039,"   52P/Harrington-Abell",52P,Harrington-Abell,P
+c00053_0,1000102,"   53P/Van Biesbroeck",53P,"Van Biesbroeck",P
+c00054_0,1000414,"   54P/de Vico-Swift-NEAT",54P,"de Vico-Swift-NEAT",P
+c00056_0,1000087,"   56P/Slaughter-Burnham",56P,Slaughter-Burnham,P
+c00057_0,1000023,"   57P/duToit-Neujmin-Delporte",57P,duToit-Neujmin-Delporte,P
+c00057_a,1000397,"   57P/duToit-Neujmin-Delporte-A",57P-A,duToit-Neujmin-Delporte,P
+c00058_0,1000048,"   58P/Jackson-Neujmin",58P,Jackson-Neujmin,P
+c00059_0,1000050,"   59P/Kearns-Kwee",59P,Kearns-Kwee,P
+c00060_0,1000098,"   60P/Tsuchinshan 2",60P,Tsuchinshan,P
+c00061_0,1000082,"   61P/Shajn-Schaldach",61P,Shajn-Schaldach,P
+c00062_0,1000097,"   62P/Tsuchinshan 1",62P,Tsuchinshan,P
+c00063_0,1000106,"   63P/Wild 1",63P,Wild,P
+c00064_0,1000090,"   64P/Swift-Gehrels",64P,Swift-Gehrels,P
+c00065_0,1000035,"   65P/Gunn",65P,Gunn,P
+c00066_0,1000021,"   66P/du Toit",66P,"du Toit",P
+c00067_0,1000012,"   67P/Churyumov-Gerasimenko",67P,Churyumov-Gerasimenko,P
+c00068_0,1000051,"   68P/Klemola",68P,Klemola,P
+c00069_0,1000092,"   69P/Taylor",69P,Taylor,P
+c00070_0,1000053,"   70P/Kojima",70P,Kojima,P
+c00071_0,1000014,"   71P/Clark",71P,Clark,P
+c00072_0,1000020,"   72P/Denning-Fujikawa",72P,Denning-Fujikawa,P
+c00073_0,1000394,"   73P/Schwassmann-Wachmann 3",73P,Schwassmann-Wachmann,P
+c00073_b,1000320,"   73P/Schwassmann-Wachmann 3-B",73P-B,Schwassmann-Wachmann,P
+c00073_c,1000081,"   73P/Schwassmann-Wachmann 3-C",73P-C,Schwassmann-Wachmann,P
+c00073_e,1000324,"   73P/Schwassmann-Wachmann 3-E",73P-E,Schwassmann-Wachmann,P
+c00073_g,1002326,"   73P/Schwassmann-Wachmann 3-G",73P-G,Schwassmann-Wachmann,P
+c00073_h,1002327,"   73P/Schwassmann-Wachmann 3-H",73P-H,Schwassmann-Wachmann,P
+c00073_j,1002336,"   73P/Schwassmann-Wachmann 3-J",73P-J,Schwassmann-Wachmann,P
+c00073_k,1002332,"   73P/Schwassmann-Wachmann 3-K",73P-K,Schwassmann-Wachmann,P
+c00073_l,1002334,"   73P/Schwassmann-Wachmann 3-L",73P-L,Schwassmann-Wachmann,P
+c00073_m,1002331,"   73P/Schwassmann-Wachmann 3-M",73P-M,Schwassmann-Wachmann,P
+c00073_n,1002338,"   73P/Schwassmann-Wachmann 3-N",73P-N,Schwassmann-Wachmann,P
+c00073_p,1002335,"   73P/Schwassmann-Wachmann 3-P",73P-P,Schwassmann-Wachmann,P
+c00073_q,1002333,"   73P/Schwassmann-Wachmann 3-Q",73P-Q,Schwassmann-Wachmann,P
+c00073_r,1002339,"   73P/Schwassmann-Wachmann 3-R",73P-R,Schwassmann-Wachmann,P
+c00073_s,1002340,"   73P/Schwassmann-Wachmann 3-S",73P-S,Schwassmann-Wachmann,P
+c00073_t,1002341,"   73P/Schwassmann-Wachmann 3-T",73P-T,Schwassmann-Wachmann,P
+c00073_u,1002342,"   73P/Schwassmann-Wachmann 3-U",73P-U,Schwassmann-Wachmann,P
+c00073_v,1002343,"   73P/Schwassmann-Wachmann 3-V",73P-V,Schwassmann-Wachmann,P
+c00073_w,1002344,"   73P/Schwassmann-Wachmann 3-W",73P-W,Schwassmann-Wachmann,P
+c00073_x,1002345,"   73P/Schwassmann-Wachmann 3-X",73P-X,Schwassmann-Wachmann,P
+c00073_y,1002346,"   73P/Schwassmann-Wachmann 3-Y",73P-Y,Schwassmann-Wachmann,P
+c00073_z,1002348,"   73P/Schwassmann-Wachmann 3-Z",73P-Z,Schwassmann-Wachmann,P
+c00073aa,1002349,"   73P/Schwassmann-Wachmann 3-AA",73P-AA,Schwassmann-Wachmann,P
+c00073ab,1002350,"   73P/Schwassmann-Wachmann 3-AB",73P-AB,Schwassmann-Wachmann,P
+c00073ac,1002351,"   73P/Schwassmann-Wachmann 3-AC",73P-AC,Schwassmann-Wachmann,P
+c00073ad,1002352,"   73P/Schwassmann-Wachmann 3-AD",73P-AD,Schwassmann-Wachmann,P
+c00073ae,1002353,"   73P/Schwassmann-Wachmann 3-AE",73P-AE,Schwassmann-Wachmann,P
+c00073af,1002354,"   73P/Schwassmann-Wachmann 3-AF",73P-AF,Schwassmann-Wachmann,P
+c00073ag,1002355,"   73P/Schwassmann-Wachmann 3-AG",73P-AG,Schwassmann-Wachmann,P
+c00073ah,1002356,"   73P/Schwassmann-Wachmann 3-AH",73P-AH,Schwassmann-Wachmann,P
+c00073ai,1002357,"   73P/Schwassmann-Wachmann 3-AI",73P-AI,Schwassmann-Wachmann,P
+c00073aj,1002358,"   73P/Schwassmann-Wachmann 3-AJ",73P-AJ,Schwassmann-Wachmann,P
+c00073ak,1002359,"   73P/Schwassmann-Wachmann 3-AK",73P-AK,Schwassmann-Wachmann,P
+c00073al,1002360,"   73P/Schwassmann-Wachmann 3-AL",73P-AL,Schwassmann-Wachmann,P
+c00073am,1002361,"   73P/Schwassmann-Wachmann 3-AM",73P-AM,Schwassmann-Wachmann,P
+c00073an,1002363,"   73P/Schwassmann-Wachmann 3-AN",73P-AN,Schwassmann-Wachmann,P
+c00073ao,1002364,"   73P/Schwassmann-Wachmann 3-AO",73P-AO,Schwassmann-Wachmann,P
+c00073ap,1002365,"   73P/Schwassmann-Wachmann 3-AP",73P-AP,Schwassmann-Wachmann,P
+c00073aq,1002366,"   73P/Schwassmann-Wachmann 3-AQ",73P-AQ,Schwassmann-Wachmann,P
+c00073ar,1002367,"   73P/Schwassmann-Wachmann 3-AR",73P-AR,Schwassmann-Wachmann,P
+c00073as,1002368,"   73P/Schwassmann-Wachmann 3-AS",73P-AS,Schwassmann-Wachmann,P
+c00073at,1002369,"   73P/Schwassmann-Wachmann 3-AT",73P-AT,Schwassmann-Wachmann,P
+c00073au,1002370,"   73P/Schwassmann-Wachmann 3-AU",73P-AU,Schwassmann-Wachmann,P
+c00073av,1002371,"   73P/Schwassmann-Wachmann 3-AV",73P-AV,Schwassmann-Wachmann,P
+c00073aw,1002372,"   73P/Schwassmann-Wachmann 3-AW",73P-AW,Schwassmann-Wachmann,P
+c00073ax,1002373,"   73P/Schwassmann-Wachmann 3-AX",73P-AX,Schwassmann-Wachmann,P
+c00073ay,1002374,"   73P/Schwassmann-Wachmann 3-AY",73P-AY,Schwassmann-Wachmann,P
+c00073az,1002375,"   73P/Schwassmann-Wachmann 3-AZ",73P-AZ,Schwassmann-Wachmann,P
+c00073ba,1002376,"   73P/Schwassmann-Wachmann 3-BA",73P-BA,Schwassmann-Wachmann,P
+c00073bb,1002377,"   73P/Schwassmann-Wachmann 3-BB",73P-BB,Schwassmann-Wachmann,P
+c00073bc,1002378,"   73P/Schwassmann-Wachmann 3-BC",73P-BC,Schwassmann-Wachmann,P
+c00073bd,1002379,"   73P/Schwassmann-Wachmann 3-BD",73P-BD,Schwassmann-Wachmann,P
+c00073be,1002380,"   73P/Schwassmann-Wachmann 3-BE",73P-BE,Schwassmann-Wachmann,P
+c00073bf,1002381,"   73P/Schwassmann-Wachmann 3-BF",73P-BF,Schwassmann-Wachmann,P
+c00073bg,1002382,"   73P/Schwassmann-Wachmann 3-BG",73P-BG,Schwassmann-Wachmann,P
+c00073bh,1002383,"   73P/Schwassmann-Wachmann 3-BH",73P-BH,Schwassmann-Wachmann,P
+c00073bi,1002384,"   73P/Schwassmann-Wachmann 3-BI",73P-BI,Schwassmann-Wachmann,P
+c00073bj,1002385,"   73P/Schwassmann-Wachmann 3-BJ",73P-BJ,Schwassmann-Wachmann,P
+c00073bk,1002386,"   73P/Schwassmann-Wachmann 3-BK",73P-BK,Schwassmann-Wachmann,P
+c00073bl,1002387,"   73P/Schwassmann-Wachmann 3-BL",73P-BL,Schwassmann-Wachmann,P
+c00073bm,1002388,"   73P/Schwassmann-Wachmann 3-BM",73P-BM,Schwassmann-Wachmann,P
+c00073bn,1002390,"   73P/Schwassmann-Wachmann 3-BN",73P-BN,Schwassmann-Wachmann,P
+c00073bo,1002391,"   73P/Schwassmann-Wachmann 3-BO",73P-BO,Schwassmann-Wachmann,P
+c00073bp,1002392,"   73P/Schwassmann-Wachmann 3-BP",73P-BP,Schwassmann-Wachmann,P
+c00073bq,1002393,"   73P/Schwassmann-Wachmann 3-BQ",73P-BQ,Schwassmann-Wachmann,P
+c00073br,1002395,"   73P/Schwassmann-Wachmann 3-BR",73P-BR,Schwassmann-Wachmann,P
+c00073bs,1002396,"   73P/Schwassmann-Wachmann 3-BS",73P-BS,Schwassmann-Wachmann,P
+c00073bt,1003506,"   73P/Schwassmann-Wachmann 3-BT",73P-BT,Schwassmann-Wachmann,P
+c00075_0,1000052,"   75D/Kohoutek",75D,Kohoutek,D
+c00076_0,1000104,"   76P/West-Kohoutek-Ikemura",76P,West-Kohoutek-Ikemura,P
+c00077_0,1000059,"   77P/Longmore",77P,Longmore,P
+c00078_0,1000030,"   78P/Gehrels 2",78P,Gehrels,P
+c00079_0,1000022,"   79P/du Toit-Hartley",79P,"du Toit-Hartley",P
+c00080_0,1000067,"   80P/Peters-Hartley",80P,Peters-Hartley,P
+c00081_0,1000107,"   81P/Wild 2",81P,Wild,P
+c00083_0,1000072,"   83D/Russell 1",83D,Russell,D
+c00084_0,1000033,"   84P/Giclas",84P,Giclas,P
+c00085_0,1000004,"   85P/Boethin",85P,Boethin,P
+c00086_0,1000108,"   86P/Wild 3",86P,Wild,P
+c00088_0,1000046,"   88P/Howell",88P,Howell,P
+c00089_0,1000073,"   89P/Russell 2",89P,Russell,P
+c00090_0,1000029,"   90P/Gehrels 1",90P,Gehrels,P
+c00091_0,1000074,"   91P/Russell 3",91P,Russell,P
+c00092_0,1000076,"   92P/Sanguin",92P,Sanguin,P
+c00093_0,1000060,"   93P/Lovas 1",93P,Lovas,P
+c00097_0,1000128,"   97P/Metcalf-Brewington",97P,Metcalf-Brewington,P
+c00098_0,1000091,"   98P/Takamizawa",98P,Takamizawa,P
+c00099_0,1000055,"   99P/Kowal 1",99P,Kowal,P
+c00100_0,1000040,"  100P/Hartley 1",100P,Hartley,P
+c00101_0,1000011,"  101P/Chernykh",101P,Chernykh,P
+c00101_b,1002320,"  101P/Chernykh-B",101P-B,Chernykh,P
+c00102_0,1000083,"  102P/Shoemaker 1",102P,Shoemaker,P
+c00103_0,1000041,"  103P/Hartley 2",103P,Hartley,P
+c00104_0,1000056,"  104P/Kowal 2",104P,Kowal,P
+c00105_0,1000086,"  105P/Singer Brewster",105P,"Singer Brewster",P
+c00106_0,1000078,"  106P/Schuster",106P,Schuster,P
+c00108_0,1000013,"  108P/Ciffreo",108P,Ciffreo,P
+c00110_0,1000119,"  110P/Hartley 3",110P,Hartley,P
+c00112_0,1000113,"  112P/Urata-Niijima",112P,Urata-Niijima,P
+c00113_0,1000146,"  113P/Spitaler",113P,Spitaler,P
+c00114_0,1000114,"  114P/Wiseman-Skiff",114P,Wiseman-Skiff,P
+c00115_0,1000062,"  115P/Maury",115P,Maury,P
+c00117_0,1000121,"  117P/Helin-Roman-Alu 1",117P,Helin-Roman-Alu,P
+c00118_0,1000150,"  118P/Shoemaker-Levy 4",118P,Shoemaker-Levy,P
+c00119_0,1000120,"  119P/Parker-Hartley",119P,Parker-Hartley,P
+c00120_0,1000116,"  120P/Mueller 1",120P,Mueller,P
+c00121_0,1000141,"  121P/Shoemaker-Holt 2",121P,Shoemaker-Holt,P
+c00123_0,1000164,"  123P/West-Hartley",123P,West-Hartley,P
+c00124_0,1000142,"  124P/Mrkos",124P,Mrkos,P
+c00125_0,1000162,"  125P/Spacewatch",125P,Spacewatch,P
+c00127_0,1000127,"  127P/Holt-Olmstead",127P,Holt-Olmstead,P
+c00128_0,1003475,"  128P/Shoemaker-Holt 1",128P,Shoemaker-Holt,P
+c00128_a,1000285,"  128P/Shoemaker-Holt 1-A",128P-A,Shoemaker-Holt,P
+c00128_b,1000117,"  128P/Shoemaker-Holt 1-B",128P-B,Shoemaker-Holt,P
+c00130_0,1000134,"  130P/McNaught-Hughes",130P,McNaught-Hughes,P
+c00131_0,1000123,"  131P/Mueller 2",131P,Mueller,P
+c00132_0,1000133,"  132P/Helin-Roman-Alu 2",132P,Helin-Roman-Alu,P
+c00134_0,1000058,"  134P/Kowal-Vavrova",134P,Kowal-Vavrova,P
+c00135_0,1000138,"  135P/Shoemaker-Levy 8",135P,Shoemaker-Levy,P
+c00136_0,1000124,"  136P/Mueller 3",136P,Mueller,P
+c00137_0,1000126,"  137P/Shoemaker-Levy 2",137P,Shoemaker-Levy,P
+c00138_0,1000137,"  138P/Shoemaker-Levy 7",138P,Shoemaker-Levy,P
+c00139_0,1000238,"  139P/Vaisala-Oterma",139P,Vaisala-Oterma,P
+c00140_0,1000006,"  140P/Bowell-Skiff",140P,Bowell-Skiff,P
+c00141_0,1003394,"  141P/Machholz 2",141P,Machholz,P
+c00141_a,1000152,"  141P/Machholz 2-A",141P-A,Machholz,P
+c00141_d,1000279,"  141P/Machholz 2-D",141P-D,Machholz,P
+c00142_0,1000160,"  142P/Ge-Wang",142P,Ge-Wang,P
+c00143_0,1000057,"  143P/Kowal-Mrkos",143P,Kowal-Mrkos,P
+c00144_0,1000148,"  144P/Kushida",144P,Kushida,P
+c00145_0,1000135,"  145P/Shoemaker-Levy 5",145P,Shoemaker-Levy,P
+c00146_0,1000311,"  146P/Shoemaker-LINEAR",146P,Shoemaker-LINEAR,P
+c00148_0,1000328,"  148P/Anderson-LINEAR",148P,Anderson-LINEAR,P
+c00149_0,1000139,"  149P/Mueller 4",149P,Mueller,P
+c00150_0,1000333,"  150P/LONEOS",150P,LONEOS,P
+c00151_0,1000115,"  151P/Helin",151P,Helin,P
+c00152_0,1000378,"  152P/Helin-Lawrence",152P,Helin-Lawrence,P
+c00154_0,1000406,"  154P/Brewington",154P,Brewington,P
+c00155_0,1000085,"  155P/Shoemaker 3",155P,Shoemaker,P
+c00156_0,1000433,"  156P/Russell-LINEAR",156P,Russell-LINEAR,P
+c00157_0,1000457,"  157P/Tritton",157P,Tritton,P
+c00158_0,1000471,"  158P/Kowal-LINEAR",158P,Kowal-LINEAR,P
+c00159_0,1000470,"  159P/LONEOS",159P,LONEOS,P
+c00160_0,1000511,"  160P/LINEAR",160P,LINEAR,P
+c00162_0,1000525,"  162P/Siding Spring",162P,"Siding Spring",P
+c00163_0,1000521,"  163P/NEAT",163P,NEAT,P
+c00164_0,1000535,"  164P/Christensen",164P,Christensen,P
+c00168_0,1000242,"  168P/Hergenrother",168P,Hergenrother,P
+c00169_0,1001656,"  169P/NEAT",169P,NEAT,P
+c00170_0,1001649,"  170P/Christensen",170P,Christensen,P
+c00171_0,1000239,"  171P/Spahr",171P,Spahr,P
+c00172_0,1000388,"  172P/Yeung",172P,Yeung,P
+c00173_0,1000149,"  173P/Mueller 5",173P,Mueller,P
+c00175_0,1000291,"  175P/Hergenrother",175P,Hergenrother,P
+c00178_0,1000283,"  178P/Hug-Bell",178P,Hug-Bell,P
+c00179_0,1000165,"  179P/Jedicke",179P,Jedicke,P
+c00180_0,1000341,"  180P/NEAT",180P,NEAT,P
+c00181_0,1000136,"  181P/Shoemaker-Levy 6",181P,Shoemaker-Levy,P
+c00182_0,1000380,"  182P/LONEOS",182P,LONEOS,P
+c00183_0,1000253,"  183P/Korlevic-Juric",183P,Korlevic-Juric,P
+c00184_0,1000112,"  184P/Lovas 2",184P,Lovas,P
+c00185_0,1000349,"  185P/Petriew",185P,Petriew,P
+c00186_0,1002441,"  186P/Garradd",186P,Garradd,P
+c00187_0,1000262,"  187P/LINEAR",187P,LINEAR,P
+c00188_0,1000231,"  188P/LINEAR-Mueller",188P,LINEAR-Mueller,P
+c00189_0,1000400,"  189P/NEAT",189P,NEAT,P
+c00190_0,1000233,"  190P/Mueller",190P,Mueller,P
+c00191_0,1002466,"  191P/McNaught",191P,McNaught,P
+c00192_0,1000125,"  192P/Shoemaker-Levy 1",192P,Shoemaker-Levy,P
+c00193_0,1000350,"  193P/LINEAR-NEAT",193P,LINEAR-NEAT,P
+c00194_0,1000290,"  194P/LINEAR",194P,LINEAR,P
+c00195_0,1002431,"  195P/Hill",195P,Hill,P
+c00196_0,1000317,"  196P/Tichy",196P,Tichy,P
+c00197_0,1000441,"  197P/LINEAR",197P,LINEAR,P
+c00198_0,1000244,"  198P/ODAS",198P,ODAS,P
+c00199_0,1000151,"  199P/Shoemaker 4",199P,Shoemaker,P
+c00200_0,1000169,"  200P/Larsen",200P,Larsen,P
+c00201_0,1000353,"  201P/LONEOS",201P,LONEOS,P
+c00202_0,1000364,"  202P/Scotti",202P,Scotti,P
+c00203_0,1000292,"  203P/Korlevic",203P,Korlevic,P
+c00204_0,1000361,"  204P/LINEAR-NEAT",204P,LINEAR-NEAT,P
+c00205_0,1000933,"  205P/Giacobini",205P,Giacobini,P
+c00205_a,1002995,"  205P/Giacobini-A",205P-A,Giacobini,P
+c00205_b,1002996,"  205P/Giacobini-B",205P-B,Giacobini,P
+c00205_c,1002997,"  205P/Giacobini-C",205P-C,Giacobini,P
+c00206_0,1000921,"  206P/Barnard-Boattini",206P,Barnard-Boattini,P
+c00207_0,1000339,"  207P/NEAT",207P,NEAT,P
+c00208_0,1003003,"  208P/McMillan",208P,McMillan,P
+c00209_0,1000487,"  209P/LINEAR",209P,LINEAR,P
+c00210_0,1000440,"  210P/Christensen",210P,Christensen,P
+c00211_0,1003004,"  211P/Hill",211P,Hill,P
+c00212_0,1003009,"  212P/NEAT",212P,NEAT,P
+c00213_0,1001663,"  213P/Van Ness",213P,"Van Ness",P
+c00213_b,1003151,"  213P/Van Ness-B",213P-B,"Van Ness",P
+c00214_0,1000384,"  214P/LINEAR",214P,LINEAR,P
+c00215_0,1000402,"  215P/NEAT",215P,NEAT,P
+c00216_0,1000331,"  216P/LINEAR",216P,LINEAR,P
+c00217_0,1000345,"  217P/LINEAR",217P,LINEAR,P
+c00218_0,1000437,"  218P/LINEAR",218P,LINEAR,P
+c00219_0,1000467,"  219P/LINEAR",219P,LINEAR,P
+c00220_0,1000498,"  220P/McNaught",220P,McNaught,P
+c00221_0,1000393,"  221P/LINEAR",221P,LINEAR,P
+c00222_0,1000530,"  222P/LINEAR",222P,LINEAR,P
+c00223_0,1000412,"  223P/Skiff",223P,Skiff,P
+c00224_0,1000472,"  224P/LINEAR-NEAT",224P,LINEAR-NEAT,P
+c00225_0,1000413,"  225P/LINEAR",225P,LINEAR,P
+c00226_0,1000715,"  226P/Pigott-LINEAR-Kowalski",226P,Pigott-LINEAR-Kowalski,P
+c00227_0,1000494,"  227P/Catalina-LINEAR",227P,Catalina-LINEAR,P
+c00228_0,1000381,"  228P/LINEAR",228P,LINEAR,P
+c00229_0,1003037,"  229P/Gibbs",229P,Gibbs,P
+c00230_0,1003048,"  230P/LINEAR",230P,LINEAR,P
+c00231_0,1000427,"  231P/LINEAR-NEAT",231P,LINEAR-NEAT,P
+c00232_0,1003050,"  232P/Hill",232P,Hill,P
+c00234_0,1003071,"  234P/LINEAR",234P,LINEAR,P
+c00235_0,1003075,"  235P/LINEAR",235P,LINEAR,P
+c00236_0,1000469,"  236P/LINEAR",236P,LINEAR,P
+c00237_0,1003096,"  237P/LINEAR",237P,LINEAR,P
+c00239_0,1000295,"  239P/LINEAR",239P,LINEAR,P
+c00240_0,1000422,"  240P/NEAT",240P,NEAT,P
+c00241_0,1000280,"  241P/LINEAR",241P,LINEAR,P
+c00242_0,1000236,"  242P/Spahr",242P,Spahr,P
+c00243_0,1000454,"  243P/NEAT",243P,NEAT,P
+c00244_0,1000323,"  244P/Scotti",244P,Scotti,P
+c00245_0,1003095,"  245P/WISE",245P,WISE,P
+c00246_0,1000486,"  246P/NEAT",246P,NEAT,P
+c00247_0,1003115,"  247P/LINEAR",247P,LINEAR,P
+c00248_0,1003114,"  248P/Gibbs",248P,Gibbs,P
+c00249_0,1002424,"  249P/LINEAR",249P,LINEAR,P
+c00250_0,1003117,"  250P/Larson",250P,Larson,P
+c00251_0,1000495,"  251P/LINEAR",251P,LINEAR,P
+c00252_0,1000298,"  252P/LINEAR",252P,LINEAR,P
+c00253_0,1003147,"  253P/PANSTARRS",253P,PANSTARRS,P
+c00254_0,1003106,"  254P/McNaught",254P,McNaught,P
+c00255_0,1002422,"  255P/Levy",255P,Levy,P
+c00256_0,1000445,"  256P/LINEAR",256P,LINEAR,P
+c00257_0,1000588,"  257P/Catalina",257P,Catalina,P
+c00258_0,1003186,"  258P/PANSTARRS",258P,PANSTARRS,P
+c00260_0,1000584,"  260P/McNaught",260P,McNaught,P
+c00261_0,1001652,"  261P/Larson",261P,Larson,P
+c00263_0,1002435,"  263P/Gibbs",263P,Gibbs,P
+c00264_0,1000493,"  264P/Larsen",264P,Larsen,P
+c00265_0,1000447,"  265P/LINEAR",265P,LINEAR,P
+c00267_0,1002412,"  267P/LONEOS",267P,LONEOS,P
+c00268_0,1001677,"  268P/Bernardi",268P,Bernardi,P
+c00269_0,1000166,"  269P/Jedicke",269P,Jedicke,P
+c00270_0,1000161,"  270P/Gehrels",270P,Gehrels,P
+c00271_0,1000103,"  271P/van Houten-Lemmon",271P,"van Houten-Lemmon",P
+c00272_0,1000484,"  272P/NEAT",272P,NEAT,P
+c00274_0,1001015,"  274P/Tombaugh-Tenagra",274P,Tombaugh-Tenagra,P
+c00275_0,1000248,"  275P/Hermann",275P,Hermann,P
+c00276_0,1003214,"  276P/Vorobjov",276P,Vorobjov,P
+c00277_0,1002318,"  277P/LINEAR",277P,LINEAR,P
+c00278_0,1002397,"  278P/McNaught",278P,McNaught,P
+c00279_0,1003040,"  279P/La Sagra",279P,"La Sagra",P
+c00280_0,1000492,"  280P/Larsen",280P,Larsen,P
+c00281_0,1003234,"  281P/MOSS",281P,MOSS,P
+c00283_0,1003254,"  283P/Spacewatch",283P,Spacewatch,P
+c00284_0,1002452,"  284P/McNaught",284P,McNaught,P
+c00285_0,1000462,"  285P/LINEAR",285P,LINEAR,P
+c00286_0,1001646,"  286P/Christensen",286P,Christensen,P
+c00287_0,1002414,"  287P/Christensen",287P,Christensen,P
+c00289_0,1000750,"  289P/Blanpain",289P,Blanpain,P
+c00290_0,1000237,"  290P/Jager",290P,Jager,P
+c00291_0,1000453,"  291P/NEAT",291P,NEAT,P
+c00292_0,1000246,"  292P/Li",292P,Li,P
+c00293_0,1002442,"  293P/Spacewatch",293P,Spacewatch,P
+c00294_0,1002493,"  294P/LINEAR",294P,LINEAR,P
+c00295_0,1000385,"  295P/LINEAR",295P,LINEAR,P
+c00296_0,1002454,"  296P/Garradd",296P,Garradd,P
+c00298_0,1002443,"  298P/Christensen",298P,Christensen,P
+c00299_0,1003304,"  299P/Catalina-PANSTARRS",299P,Catalina-PANSTARRS,P
+c00300_0,1000567,"  300P/Catalina",300P,Catalina,P
+c00301_0,1000334,"  301P/LINEAR-NEAT",301P,LINEAR-NEAT,P
+c00302_0,1003314,"  302P/Lemmon-PANSTARRS",302P,Lemmon-PANSTARRS,P
+c00303_0,1000463,"  303P/NEAT",303P,NEAT,P
+c00304_0,1002989,"  304P/Ory",304P,Ory,P
+c00305_0,1000518,"  305P/Skiff",305P,Skiff,P
+c00306_0,1000448,"  306P/LINEAR",306P,LINEAR,P
+c00307_0,1001675,"  307P/LINEAR",307P,LINEAR,P
+c00308_0,1000178,"  308P/Lagerkvist-Carsenty",308P,Lagerkvist-Carsenty,P
+c00309_0,1001661,"  309P/LINEAR",309P,LINEAR,P
+c00310_0,1002419,"  310P/Hill",310P,Hill,P
+c00312_0,1003074,"  312P/NEAT",312P,NEAT,P
+c00314_0,1000172,"  314P/Montani",314P,Montani,P
+c00315_0,1000532,"  315P/LONEOS",315P,LONEOS,P
+c00316_0,1001672,"  316P/LONEOS-Christensen",316P,LONEOS-Christensen,P
+c00317_0,1003094,"  317P/WISE",317P,WISE,P
+c00318_0,1000153,"  318P/McNaught-Hartley",318P,McNaught-Hartley,P
+c00319_0,1002993,"  319P/Catalina-McNaught",319P,Catalina-McNaught,P
+c00320_0,1000508,"  320P/McNaught",320P,McNaught,P
+c00321_0,1001745,"  321P/SOHO",321P,SOHO,P
+c00322_0,1001474,"  322P/SOHO",322P,SOHO,P
+c00323_0,1002529,"  323P/SOHO",323P,SOHO,P
+c00325_0,1003026,"  325P/Yang-Gao",325P,Yang-Gao,P
+c00326_0,1002486,"  326P/Hill",326P,Hill,P
+c00327_0,1000405,"  327P/Van Ness",327P,"Van Ness",P
+c00328_0,1000229,"  328P/LONEOS-Tucker",328P,LONEOS-Tucker,P
+c00329_0,1000477,"  329P/LINEAR-Catalina",329P,LINEAR-Catalina,P
+c00330_0,1000281,"  330P/Catalina",330P,Catalina,P
+c00332_f,1003449,"  332P/Ikeya-Murakami-F",332P-F,Ikeya-Murakami,P
+c00334_0,1000335,"  334P/NEAT",334P,NEAT,P
+c00335_0,1003007,"  335P/Gibbs",335P,Gibbs,P
+c00336_0,1002347,"  336P/McNaught",336P,McNaught,P
+c00337_0,1003101,"  337P/WISE",337P,WISE,P
+c00338_0,1002502,"  338P/McNaught",338P,McNaught,P
+c00339_0,1003021,"  339P/Gibbs",339P,Gibbs,P
+c00340_0,1002999,"  340P/Boattini",340P,Boattini,P
+c00341_0,1002475,"  341P/Gibbs",341P,Gibbs,P
+c00343_0,1000475,"  343P/NEAT-LONEOS",343P,NEAT-LONEOS,P
+c00344_0,1001667,"  344P/Read",344P,Read,P
+c00346_0,1002483,"  346P/Catalina",346P,Catalina,P
+c00347_0,1003483,"  347P/PANSTARRS",347P,PANSTARRS,P
+c00351_0,1003473,"  351P/Wiegert-PANSTARRS",351P,Wiegert-PANSTARRS,P
+c00352_0,1000310,"  352P/Skiff",352P,Skiff,P
+c00353_0,1003038,"  353P/McNaught",353P,McNaught,P
+c00355_0,1000513,"  355P/LINEAR-NEAT",355P,LINEAR-NEAT,P
+c00356_0,1003063,"  356P/WISE",356P,WISE,P
+c00357_0,1003002,"  357P/Hill",357P,Hill,P
+c00359_0,1003529,"  359P/LONEOS",359P,LONEOS,P
+c00360_0,1003102,"  360P/WISE",360P,WISE,P
+c00361_0,1003533,"  361P/Spacewatch",361P,Spacewatch,P
+c00363_0,1003169,"  363P/Lemmon",363P,Lemmon,P
+c00364_0,1003263,"  364P/PANSTARRS",364P,PANSTARRS,P
+c00365_0,1003562,"  365P/PANSTARRS",365P,PANSTARRS,P
+c00368_0,1001662,"  368P/NEAT",368P,NEAT,P
+c00369_0,1003054,"  369P/Hill",369P,Hill,P
+c00370_0,1000355,"  370P/NEAT",370P,NEAT,P
+c00371_0,1000354,"  371P/LINEAR-Skiff",371P,LINEAR-Skiff,P
+c00372_0,1002510,"  372P/McNaught",372P,McNaught,P
+c00373_0,1003160,"  373P/Rinner",373P,Rinner,P
+c00374_0,1002485,"  374P/Larson",374P,Larson,P
+c00375_0,1002323,"  375P/Hill",375P,Hill,P
+c00376_0,1000562,"  376P/LONEOS",376P,LONEOS,P
+c00377_0,1000444,"  377P/Scotti",377P,Scotti,P
+c00378_0,1002315,"  378P/McNaught",378P,McNaught,P
+c00379_0,1002337,"  379P/Spacewatch",379P,Spacewatch,P
+c00380_0,1003617,"  380P/PANSTARRS",380P,PANSTARRS,P
+c00381_0,1000314,"  381P/LINEAR-Spacewatch",381P,LINEAR-Spacewatch,P
+c00382_0,1002473,"  382P/Larson",382P,Larson,P
+c00383_0,1002415,"  383P/Christensen",383P,Christensen,P
+c00384_0,1003346,"  384P/Kowalski",384P,Kowalski,P
+c00385_0,1003109,"  385P/Hill",385P,Hill,P
+c00386_0,1003154,"  386P/PANSTARRS",386P,PANSTARRS,P
+c00387_0,1003006,"  387P/Boattini",387P,Boattini,P
+c00388_0,1002481,"  388P/Gibbs",388P,Gibbs,P
+c00390_0,1002429,"  390P/Gibbs",390P,Gibbs,P
+c00391_0,1002328,"  391P/Kowalski",391P,Kowalski,P
+c00392_0,1000529,"  392P/LINEAR",392P,LINEAR,P
+c00393_0,1003044,"  393P/Spacewatch-Hill",393P,Spacewatch-Hill,P
+c00394_0,1003668,"  394P/PANSTARRS",394P,PANSTARRS,P
+c00395_0,1001650,"  395P/Catalina-NEAT",395P,Catalina-NEAT,P
+c00396_0,1003664,"  396P/Leonard",396P,Leonard,P
+c00397_0,1003207,"  397P/Lemmon",397P,Lemmon,P
+c00398_0,1003034,"  398P/Boattini",398P,Boattini,P
+c00399_0,1003266,"  399P/PANSTARRS",399P,PANSTARRS,P
+c00400_0,1003718,"  400P/PANSTARRS",400P,PANSTARRS,P
+c00401_0,1002389,"  401P/McNaught",401P,McNaught,P
+c00402_0,1000415,"  402P/LINEAR",402P,LINEAR,P
+c00403_0,1002494,"  403P/CATALINA",403P,CATALINA,P
+c00404_0,1003155,"  404P/Bressi",404P,Bressi,P
+c00405_0,1003292,"  405P/Lemmon",405P,Lemmon,P
+c00406_0,1002474,"  406P/Gibbs",406P,Gibbs,P
+c00408_0,1003148,"  408P/Novichonok",408P,Novichonok,P
+c00409_0,1002317,"  409P/LONEOS-Hill",409P,LONEOS-Hill,P
+c00410_0,1003747,"  410P/NEAT-LINEAR",410P,NEAT-LINEAR,P
+c00411_0,1002438,"  411P/Christensen",411P,Christensen,P
+c00413_0,1003305,"  413P/Larson",413P,Larson,P
+c00414_0,1003467,"  414P/STEREO",414P,STEREO,P
+c00415_0,1003258,"  415P/Tenagra",415P,Tenagra,P
+c00416_0,1003229,"  416P/Scotti",416P,Scotti,P
+c00417_0,1003390,"  417P/NEOWISE",417P,NEOWISE,P
+c00418_0,1003058,"  418P/LINEAR",418P,LINEAR,P
+dH66G010,1000703,"     D/1766 G1 (Helfenzrieder)","1766 G1",Helfenzrieder,D
+dH70L010,1000705,"     D/1770 L1 (Lexell)","1770 L1",Lexell,D
+dI84O010,1000889,"     D/1884 O1 (Barnard)","1884 O1",Barnard,D
+dI86K010,1000897,"     D/1886 K1 (Brooks)","1886 K1",Brooks,D
+dI94F010,1000925,"     D/1894 F1 (Denning)","1894 F1",Denning,D
+dI95Q010,1000927,"     D/1895 Q1 (Swift)","1895 Q1",Swift,D
+dJ18W010,1000988,"     D/1918 W1 (Schorr)","1918 W1",Schorr,D
+dJ52B010,1000482,"     D/1952 B1 (Harrington-Wilson)","1952 B1",Harrington-Wilson,D
+dJ78R010,1000037,"     D/1978 R1 (Haneda-Campos)","1978 R1",Haneda-Campos,D
+dJ93F02a,1000181,"     D/1993 F2-A (Shoemaker-Levy 9)","1993 F2-A",Shoemaker-Levy,D
+dJ93F02b,1000182,"     D/1993 F2-B (Shoemaker-Levy 9)","1993 F2-B",Shoemaker-Levy,D
+dJ93F02c,1000183,"     D/1993 F2-C (Shoemaker-Levy 9)","1993 F2-C",Shoemaker-Levy,D
+dJ93F02d,1000184,"     D/1993 F2-D (Shoemaker-Levy 9)","1993 F2-D",Shoemaker-Levy,D
+dJ93F02e,1000185,"     D/1993 F2-E (Shoemaker-Levy 9)","1993 F2-E",Shoemaker-Levy,D
+dJ93F02f,1000186,"     D/1993 F2-F (Shoemaker-Levy 9)","1993 F2-F",Shoemaker-Levy,D
+dJ93F02g,1000187,"     D/1993 F2-G (Shoemaker-Levy 9)","1993 F2-G",Shoemaker-Levy,D
+dJ93F02h,1000188,"     D/1993 F2-H (Shoemaker-Levy 9)","1993 F2-H",Shoemaker-Levy,D
+dJ93F02k,1000190,"     D/1993 F2-K (Shoemaker-Levy 9)","1993 F2-K",Shoemaker-Levy,D
+dJ93F02l,1000191,"     D/1993 F2-L (Shoemaker-Levy 9)","1993 F2-L",Shoemaker-Levy,D
+dJ93F02n,1000193,"     D/1993 F2-N (Shoemaker-Levy 9)","1993 F2-N",Shoemaker-Levy,D
+dJ93F02p,1000194,"     D/1993 F2-P1 (Shoemaker-Levy 9)","1993 F2-P1",Shoemaker-Levy,D
+dJ93F02q,1000196,"     D/1993 F2-Q1 (Shoemaker-Levy 9)","1993 F2-Q1",Shoemaker-Levy,D
+dJ93F02r,1000198,"     D/1993 F2-R (Shoemaker-Levy 9)","1993 F2-R",Shoemaker-Levy,D
+dJ93F02s,1000199,"     D/1993 F2-S (Shoemaker-Levy 9)","1993 F2-S",Shoemaker-Levy,D
+dJ93F02t,1000200,"     D/1993 F2-T (Shoemaker-Levy 9)","1993 F2-T",Shoemaker-Levy,D
+dJ93F02u,1000201,"     D/1993 F2-U (Shoemaker-Levy 9)","1993 F2-U",Shoemaker-Levy,D
+dJ93F02v,1000202,"     D/1993 F2-V (Shoemaker-Levy 9)","1993 F2-V",Shoemaker-Levy,D
+dJ93F02w,1000203,"     D/1993 F2-W (Shoemaker-Levy 9)","1993 F2-W",Shoemaker-Levy,D
+dJ93F02y,1000195,"     D/1993 F2-P2 (Shoemaker-Levy 9)","1993 F2-P2",Shoemaker-Levy,D
+dJ93F02z,1000197,"     D/1993 F2-Q2 (Shoemaker-Levy 9)","1993 F2-Q2",Shoemaker-Levy,D
+dJ96R020,1000168,"     P/1996 R2 (Lagerkvist)","1996 R2",Lagerkvist,P
+dJ96R030,1000480,"     C/1996 R3 (Lagerkvist)","1996 R3",Lagerkvist,C
+dJ97B010,1000167,"     P/1997 B1 (Kobayashi)","1997 B1",Kobayashi,P
+dJ98M010,1000221,"     C/1998 M1 (LINEAR)","1998 M1",LINEAR,C
+dJ98V24S,1000243,"     P/1998 VS24 (LINEAR)","1998 VS24",LINEAR,P
+dJ99R28O,1000271,"     P/1999 RO28 (LONEOS)","1999 RO28",LONEOS,P
+dJ99X87S,1000287,"     C/1999 XS87 (LINEAR)","1999 XS87",LINEAR,C
+dJ99XC0N,1000296,"     P/1999 XN120 (Catalina)","1999 XN120",Catalina,P
+dK00R020,1000309,"     P/2000 R2 (LINEAR)","2000 R2",LINEAR,P
+dK00S030,1000313,"     C/2000 S3 (LONEOS)","2000 S3",LONEOS,C
+dK00Y020,1000325,"     C/2000 Y2 (Skiff)","2000 Y2",Skiff,C
+dK01H050,1000337,"     P/2001 H5 (NEAT)","2001 H5",NEAT,P
+dK01M100,1000344,"     C/2001 M10 (NEAT)","2001 M10",NEAT,C
+dK02A010,1000369,"     C/2002 A1 (LINEAR)","2002 A1",LINEAR,C
+dK02A020,1000370,"     C/2002 A2 (LINEAR)","2002 A2",LINEAR,C
+dK02E57J,1000387,"     P/2002 EJ57 (LINEAR)","2002 EJ57",LINEAR,P
+dK02P010,1000404,"     C/2002 P1 (NEAT)","2002 P1",NEAT,C
+dK02T060,1000417,"     P/2002 T6 (NEAT-LINEAR)","2002 T6",NEAT-LINEAR,P
+dK03E010,1000428,"     C/2003 E1 (NEAT)","2003 E1",NEAT,C
+dK03F020,1000430,"     P/2003 F2 (NEAT)","2003 F2",NEAT,P
+dK03Q29X,1000449,"     P/2003 QX29 (NEAT)","2003 QX29",NEAT,P
+dK03T120,1002004,"     P/2003 T12 (SOHO)","2003 T12",SOHO,P
+dK04A010,1000473,"     P/2004 A1 (LONEOS)","2004 A1",LONEOS,P
+dK04C010,1000478,"     C/2004 C1 (Larsen)","2004 C1",Larsen,C
+dK04D29O,1000481,"     P/2004 DO29 (Spacewatch-LINEAR)","2004 DO29",Spacewatch-LINEAR,P
+dK04FE0Y,1001665,"     P/2004 FY140 (LINEAR)","2004 FY140",LINEAR,P
+dK04P010,1000503,"     C/2004 P1 (NEAT)","2004 P1",NEAT,C
+dK04R030,1000510,"     P/2004 R3 (LINEAR-NEAT)","2004 R3",LINEAR-NEAT,P
+dK04V030,1000520,"     P/2004 V3 (Siding Spring)","2004 V3","Siding Spring",P
+dK04V05a,1000522,"     P/2004 V5-A (LINEAR-Hill)","2004 V5-A",LINEAR-Hill,P
+dK04V05b,1000533,"     P/2004 V5-B (LINEAR-Hill)","2004 V5-B",LINEAR-Hill,P
+dK05E010,1000559,"     P/2005 E1 (Tubbiolo)","2005 E1",Tubbiolo,P
+dK05J010,1000564,"     P/2005 J1 (McNaught)","2005 J1",McNaught,P
+dK05SL6B,1002322,"     P/2005 SB216 (LONEOS)","2005 SB216",LONEOS,P
+dK05T020,1001669,"     P/2005 T2 (Christensen)","2005 T2",Christensen,P
+dK05T050,1001674,"     P/2005 T5 (Broughton)","2005 T5",Broughton,P
+dK05W020,1001678,"     C/2005 W2 (Christensen)","2005 W2",Christensen,C
+dK05W030,1002312,"     P/2005 W3 (Kowalski)","2005 W3",Kowalski,P
+dK06F020,1002329,"     C/2006 F2 (Christensen)","2006 F2",Christensen,C
+dK06S040,1002418,"     P/2006 S4 (Christensen)","2006 S4",Christensen,P
+dK06S050,1002420,"     C/2006 S5 (Hill)","2006 S5",Hill,C
+dK06U070,1002427,"     C/2006 U7 (Gibbs)","2006 U7",Gibbs,C
+dK06WI2Y,1002437,"     P/2006 WY182 (Christensen)","2006 WY182",Christensen,P
+dK07C020,1002444,"     P/2007 C2 (Catalina)","2007 C2",Catalina,P
+dK07K020,1002457,"     P/2007 K2 (Gibbs)","2007 K2",Gibbs,P
+dK07Q020,1002471,"     P/2007 Q2 (Gilmore)","2007 Q2",Gilmore,P
+dK07R040,1002476,"     P/2007 R4 (Garradd)","2007 R4",Garradd,P
+dK07S010,1002477,"     P/2007 S1 (Zhao)","2007 S1",Zhao,P
+dK07S020,1002478,"     C/2007 S2 (Lemmon)","2007 S2",Lemmon,C
+dK07T020,1002480,"     P/2007 T2 (Kowalski)","2007 T2",Kowalski,P
+dK08C94L,1003018,"     P/2008 CL94 (Lemmon)","2008 CL94",Lemmon,P
+dK08E010,1002496,"     C/2008 E1 (Catalina)","2008 E1",Catalina,C
+dK08L020,1002506,"     P/2008 L2 (Hill)","2008 L2",Hill,P
+dK08O030,1002511,"     P/2008 O3 (Boattini)","2008 O3",Boattini,P
+dK08Q20P,1002994,"     P/2008 QP20 (LINEAR-Hill)","2008 QP20",LINEAR-Hill,P
+dK08W96Z,1003011,"     P/2008 WZ96 (LINEAR)","2008 WZ96",LINEAR,P
+dK08Y030,1003008,"     P/2008 Y3 (McNaught)","2008 Y3",McNaught,P
+dK09B010,1003010,"     P/2009 B1 (Boattini)","2009 B1",Boattini,P
+dK09O030,1003028,"     P/2009 O3 (Hill)","2009 O3",Hill,P
+dK09Q010,1003033,"     P/2009 Q1 (Hill)","2009 Q1",Hill,P
+dK09Q050,1003035,"     P/2009 Q5 (McNaught)","2009 Q5",McNaught,P
+dK09T020,1003042,"     P/2009 T2 (La Sagra)","2009 T2","La Sagra",P
+dK09U040,1003047,"     P/2009 U4 (McNaught)","2009 U4",McNaught,P
+dK09U050,1003049,"     C/2009 U5 (Grauer)","2009 U5",Grauer,C
+dK09W51X,1003080,"     P/2009 WX51 (Catalina)","2009 WX51",Catalina,P
+dK09Y020,1003053,"     P/2009 Y2 (Kowalski)","2009 Y2",Kowalski,P
+dK10A030,1003056,"     P/2010 A3 (Hill)","2010 A3",Hill,P
+dK10C010,1003061,"     P/2010 C1 (Scotti)","2010 C1",Scotti,P
+dK10E020,1003069,"     P/2010 E2 (Jarnac)","2010 E2",Jarnac,P
+dK10E050,1003072,"     C/2010 E5 (Scotti)","2010 E5",Scotti,C
+dK10F030,1003076,"     C/2010 F3 (Scotti)","2010 F3",Scotti,C
+dK10H020,1003083,"     P/2010 H2 (Vales)","2010 H2",Vales,P
+dK10H040,1003084,"     P/2010 H4 (Scotti)","2010 H4",Scotti,P
+dK10H050,1003088,"     P/2010 H5 (Scotti)","2010 H5",Scotti,P
+dK10J030,1003093,"     P/2010 J3 (McMillan)","2010 J3",McMillan,P
+dK10T020,1003107,"     P/2010 T2 (PANSTARRS)","2010 T2",PANSTARRS,P
+dK10T20O,1003153,"     P/2010 TO20 (LINEAR-Grauer)","2010 TO20",LINEAR-Grauer,P
+dK10U010,1003108,"     P/2010 U1 (Boattini)","2010 U1",Boattini,P
+dK10U55H,1003161,"     P/2010 UH55 (Spacewatch)","2010 UH55",Spacewatch,P
+dK10W00K,1003116,"     P/2010 WK (LINEAR)","2010 WK",LINEAR,P
+dK11C020,1003121,"     P/2011 C2 (Gibbs)","2011 C2",Gibbs,P
+dK11FE3R,1003184,"     P/2011 FR143 (Lemmon)","2011 FR143",Lemmon,P
+dK11J15B,1003128,"     P/2011 JB15 (Spacewatch-Boattini)","2011 JB15",Spacewatch-Boattini,P
+dK11K36P,1003189,"     C/2011 KP36 (Spacewatch)","2011 KP36",Spacewatch,C
+dK11N010,1003136,"     P/2011 N1 (ASH)","2011 N1",ASH,P
+dK11N01O,1003138,"     P/2011 NO1 (Elenin)","2011 NO1",Elenin,P
+dK11P010,1003139,"     P/2011 P1 (McNaught)","2011 P1",McNaught,P
+dK11Q030,1003145,"     P/2011 Q3 (McNaught)","2011 Q3",McNaught,P
+dK11UD4A,1003157,"     P/2011 UA134 (Spacewatch-PANSTARRS)","2011 UA134",Spacewatch-PANSTARRS,P
+dK11V010,1003158,"     P/2011 V1 (Boattini)","2011 V1",Boattini,P
+dK11W010,1003159,"     P/2011 W1 (PANSTARRS)","2011 W1",PANSTARRS,P
+dK11Y020,1003163,"     P/2011 Y2 (Boattini)","2011 Y2",Boattini,P
+dK11Y030,1003164,"     C/2011 Y3 (Boattini)","2011 Y3",Boattini,C
+dK12B010,1003168,"     P/2012 B1 (PANSTARRS)","2012 B1",PANSTARRS,P
+dK12B98J,1003175,"     C/2012 BJ98 (Lemmon)","2012 BJ98",Lemmon,C
+dK12C030,1003174,"     P/2012 C3 (PANSTARRS)","2012 C3",PANSTARRS,P
+dK12F020,1003180,"     P/2012 F2 (PANSTARRS)","2012 F2",PANSTARRS,P
+dK12G010,1003185,"     P/2012 G1 (PANSTARRS)","2012 G1",PANSTARRS,P
+dK12K030,1003191,"     P/2012 K3 (Gibbs)","2012 K3",Gibbs,P
+dK12L26P,1003233,"     C/2012 LP26 (Palomar)","2012 LP26",Palomar,C
+dK12O010,1003199,"     P/2012 O1 (McNaught)","2012 O1",McNaught,P
+dK12O020,1003200,"     P/2012 O2 (McNaught)","2012 O2",McNaught,P
+dK12O030,1003201,"     P/2012 O3 (McNaught)","2012 O3",McNaught,P
+dK12Q010,1003202,"     C/2012 Q1 (Kowalski)","2012 Q1",Kowalski,C
+dK12S020,1003204,"     P/2012 S2 (La Sagra)","2012 S2","La Sagra",P
+dK12T020,1003209,"     P/2012 T2 (PANSTARRS)","2012 T2",PANSTARRS,P
+dK12T030,1003210,"     P/2012 T3 (PANSTARRS)","2012 T3",PANSTARRS,P
+dK12T08K,1003215,"     P/2012 TK8 (Tenagra)","2012 TK8",Tenagra,P
+dK12U020,1003217,"     P/2012 U2 (PANSTARRS)","2012 U2",PANSTARRS,P
+dK12U27S,1003221,"     P/2012 US27 (Siding Spring)","2012 US27","Siding Spring",P
+dK12W34A,1003230,"     P/2012 WA34 (Lemmon-PANSTARRS)","2012 WA34",Lemmon-PANSTARRS,P
+dK12X020,1003225,"     C/2012 X2 (PANSTARRS)","2012 X2",PANSTARRS,C
+dK13D010,1003236,"     C/2013 D1 (Holvorcem)","2013 D1",Holvorcem,C
+dK13G010,1003242,"     P/2013 G1 (Kowalski)","2013 G1",Kowalski,P
+dK13G040,1003245,"     P/2013 G4 (PANSTARRS)","2013 G4",PANSTARRS,P
+dK13G080,1003249,"     C/2013 G8 (PANSTARRS)","2013 G8",PANSTARRS,C
+dK13J020,1003255,"     P/2013 J2 (McNaught)","2013 J2",McNaught,P
+dK13N030,1003264,"     P/2013 N3 (PANSTARRS)","2013 N3",PANSTARRS,P
+dK13N050,1003268,"     P/2013 N5 (PANSTARRS)","2013 N5",PANSTARRS,P
+dK13P010,1003269,"     P/2013 P1 (PANSTARRS)","2013 P1",PANSTARRS,P
+dK13T010,1003277,"     P/2013 T1 (PANSTARRS)","2013 T1",PANSTARRS,P
+dK13T020,1003279,"     P/2013 T2 (Schwartz)","2013 T2",Schwartz,P
+dK13T05W,1003278,"     C/2013 TW5 (Spacewatch)","2013 TW5",Spacewatch,C
+dK13U010,1003280,"     C/2013 U1 (Catalina)","2013 U1",Catalina,C
+dK13U020,1003281,"     C/2013 U2 (Holvorcem)","2013 U2",Holvorcem,C
+dK13W010,1003289,"     P/2013 W1 (PANSTARRS)","2013 W1",PANSTARRS,P
+dK13W020,1003290,"     C/2013 W2 (PANSTARRS)","2013 W2",PANSTARRS,C
+dK13Y46G,1003302,"     P/2013 YG46 (Spacewatch)","2013 YG46",Spacewatch,P
+dK14A020,1003294,"     P/2014 A2 (Hill)","2014 A2",Hill,P
+dK14A030,1003295,"     P/2014 A3 (PANSTARRS)","2014 A3",PANSTARRS,P
+dK14A050,1003297,"     C/2014 A5 (PANSTARRS)","2014 A5",PANSTARRS,C
+dK14F030,1003315,"     C/2014 F3 (Sheppard-Trujillo)","2014 F3",Sheppard-Trujillo,C
+dK14HJ5U,1003471,"     C/2014 HU195 (Valdes-TOTAS)","2014 HU195",Valdes-TOTAS,C
+dK14L020,1003318,"     P/2014 L2 (NEOWISE)","2014 L2",NEOWISE,P
+dK14L030,1003319,"     P/2014 L3 (Hill)","2014 L3",Hill,P
+dK14M020,1003322,"     C/2014 M2 (Christensen)","2014 M2",Christensen,C
+dK14M040,1003325,"     P/2014 M4 (PANSTARRS)","2014 M4",PANSTARRS,P
+dK14M04G,1003327,"     P/2014 MG4 (Spacewatch-PANSTARRS)","2014 MG4",Spacewatch-PANSTARRS,P
+dK14O030,1003329,"     P/2014 O3 (PANSTARRS)","2014 O3",PANSTARRS,P
+dK14R050,1003342,"     P/2014 R5 (Lemmon-PANSTARRS)","2014 R5",Lemmon-PANSTARRS,P
+dK14T64G,1003357,"     C/2014 TG64 (Catalina)","2014 TG64",Catalina,C
+dK14U040,1003348,"     P/2014 U4 (PANSTARRS)","2014 U4",PANSTARRS,P
+dK14V010,1003349,"     P/2014 V1 (PANSTARRS)","2014 V1",PANSTARRS,P
+dK14W010,1003351,"     P/2014 W1 (PANSTARRS)","2014 W1",PANSTARRS,P
+dK14W040,1003354,"     P/2014 W4 (PANSTARRS)","2014 W4",PANSTARRS,P
+dK14W110,1003362,"     C/2014 W11 (PANSTARRS)","2014 W11",PANSTARRS,C
+dK14W120,1003363,"     P/2014 W12 (Gibbs)","2014 W12",Gibbs,P
+dK14X010,1003364,"     P/2014 X1 (Elenin)","2014 X1",Elenin,P
+dK15B010,1003370,"     P/2015 B1 (PANSTARRS)","2015 B1",PANSTARRS,P
+dK15B040,1003456,"     P/2015 B4 (Lemmon-PANSTARRS)","2015 B4",Lemmon-PANSTARRS,P
+dK15C010,1003372,"     P/2015 C1 (TOTAS-Gibbs)","2015 C1",TOTAS-Gibbs,P
+dK15D020,1003373,"     C/2015 D2 (PANSTARRS)","2015 D2",PANSTARRS,C
+dK15D050,1003376,"     C/2015 D5 (Kowalski)","2015 D5",Kowalski,C
+dK15D060,1003378,"     P/2015 D6 (Lemmon-PANSTARRS)","2015 D6",Lemmon-PANSTARRS,P
+dK15H16G,1003461,"     P/2015 HG16 (PANSTARRS)","2015 HG16",PANSTARRS,P
+dK15J020,1003389,"     C/2015 J2 (PANSTARRS)","2015 J2",PANSTARRS,C
+dK15K050,1003397,"     P/2015 K5 (PANSTARRS)","2015 K5",PANSTARRS,P
+dK15P040,1003403,"     P/2015 P4 (PANSTARRS)","2015 P4",PANSTARRS,P
+dK15PM9D,1003444,"     P/2015 PD229 (Cameron-ISON)","2015 PD229",Cameron-ISON,P
+dK15Q010,1003404,"     C/2015 Q1 (Scotti)","2015 Q1",Scotti,C
+dK15R010,1003406,"     C/2015 R1 (PANSTARRS)","2015 R1",PANSTARRS,C
+dK15R020,1003408,"     P/2015 R2 (PANSTARRS)","2015 R2",PANSTARRS,P
+dK15T030,1003411,"     P/2015 T3 (PANSTARRS)","2015 T3",PANSTARRS,P
+dK15T19O,1003410,"     P/2015 TO19 (Lemmon-PANSTARRS)","2015 TO19",Lemmon-PANSTARRS,P
+dK15TK0P,1003474,"     P/2015 TP200 (LINEAR)","2015 TP200",LINEAR,P
+dK15W020,1003420,"     P/2015 W2 (Catalina)","2015 W2",Catalina,P
+dK15X010,1003421,"     P/2015 X1 (PANSTARRS)","2015 X1",PANSTARRS,P
+dK15X030,1003423,"     P/2015 X3 (PANSTARRS)","2015 X3",PANSTARRS,P
+dK15X040,1003424,"     C/2015 X4 (Elenin)","2015 X4",Elenin,C
+dK16A020,1003433,"     P/2016 A2 (Christensen)","2016 A2",Christensen,P
+dK16A030,1003434,"     P/2016 A3 (PANSTARRS)","2016 A3",PANSTARRS,P
+dK16A070,1003439,"     P/2016 A7 (PANSTARRS)","2016 A7",PANSTARRS,P
+dK16B14A,1003451,"     P/2016 BA14 (PANSTARRS)","2016 BA14",PANSTARRS,P
+dK16P010,1003472,"     P/2016 P1 (PANSTARRS)","2016 P1",PANSTARRS,P
+dK16P040,1003480,"     C/2016 P4 (PANSTARRS)","2016 P4",PANSTARRS,C
+dK16R040,1003485,"     P/2016 R4 (Gibbs)","2016 R4",Gibbs,P
+dK17B040,1003497,"     P/2017 B4 (PANSTARRS)","2017 B4",PANSTARRS,P
+dK17D010,1003500,"     P/2017 D1 (Fuls)","2017 D1",Fuls,P
+dK17D040,1003503,"     P/2017 D4 (PANSTARRS)","2017 D4",PANSTARRS,P
+dK17G010,1003513,"     P/2017 G1 (PANSTARRS)","2017 G1",PANSTARRS,P
+dK17K030,1003519,"     P/2017 K3 (Gasparovic)","2017 K3",Gasparovic,P
+dK17K040,1003521,"     C/2017 K4 (ATLAS)","2017 K4",ATLAS,C
+dK17P010,1003527,"     P/2017 P1 (PANSTARRS)","2017 P1",PANSTARRS,P
+dK17S020,1003531,"     C/2017 S2 (PANSTARRS)","2017 S2",PANSTARRS,C
+dK17U030,1003545,"     P/2017 U3 (PANSTARRS)","2017 U3",PANSTARRS,P
+dK17U050,1003547,"     C/2017 U5 (PANSTARRS)","2017 U5",PANSTARRS,C
+dK17W030,1003549,"     P/2017 W3 (Gibbs)","2017 W3",Gibbs,P
+dK17X010,1003550,"     C/2017 X1 (PANSTARRS)","2017 X1",PANSTARRS,C
+dK18A040,1003557,"     P/2018 A4 (PANSTARRS)","2018 A4",PANSTARRS,P
+dK18A050,1003558,"     P/2018 A5 (PANSTARRS)","2018 A5",PANSTARRS,P
+dK18C010,1003561,"     P/2018 C1 (Lemmon-Read)","2018 C1",Lemmon-Read,P
+dK18H020,1003570,"     P/2018 H2 (PANSTARRS)","2018 H2",PANSTARRS,P
+dK18L010,1003573,"     P/2018 L1 (PANSTARRS)","2018 L1",PANSTARRS,P
+dK18L040,1003576,"     P/2018 L4 (PANSTARRS)","2018 L4",PANSTARRS,P
+dK18L050,1003577,"     P/2018 L5 (Leonard)","2018 L5",Leonard,P
+dK18P040,1003584,"     P/2018 P4 (PANSTARRS)","2018 P4",PANSTARRS,P
+dK18P050,1003585,"     C/2018 P5 (PANSTARRS)","2018 P5",PANSTARRS,C
+dK18V02N,1003591,"     P/2018 VN2 (Leonard)","2018 VN2",Leonard,P
+dK18V050,1003610,"     P/2018 V5 (Trujillo-Sheppard)","2018 V5",Trujillo-Sheppard,P
+dK18Y020,1003601,"     P/2018 Y2 (Africano)","2018 Y2",Africano,P
+dK19A010,1003602,"     P/2019 A1 (PANSTARRS)","2019 A1",PANSTARRS,P
+dK19A020,1003603,"     P/2019 A2 (ATLAS)","2019 A2",ATLAS,P
+dK19A060,1003607,"     P/2019 A6 (Lemmon-PANSTARRS)","2019 A6",Lemmon-PANSTARRS,P
+dK19A080,1003611,"     P/2019 A8 (PANSTARRS)","2019 A8",PANSTARRS,P
+dK19B020,1003612,"     P/2019 B2 (Groeller)","2019 B2",Groeller,P
+dK19C010,1003659,"     C/2019 C1 (ATLAS)","2019 C1",ATLAS,C
+dK19F020,1003619,"     C/2019 F2 (ATLAS)","2019 F2",ATLAS,C
+dK19G21G,1003620,"     P/2019 GG21 (PANSTARRS)","2019 GG21",PANSTARRS,P
+dK19L010,1003628,"     C/2019 L1 (PANSTARRS)","2019 L1",PANSTARRS,C
+dK19L02D,1003688,"     P/2019 LD2 (ATLAS)","2019 LD2",ATLAS,P
+dK19L04M,1003684,"     P/2019 LM4 (Palomar)","2019 LM4",Palomar,P
+dK19M020,1003635,"     P/2019 M2 (ATLAS)","2019 M2",ATLAS,P
+dK19S020,1003640,"     P/2019 S2 (PANSTARRS)","2019 S2",PANSTARRS,P
+dK19S030,1003641,"     P/2019 S3 (PANSTARRS)","2019 S3",PANSTARRS,P
+dK19T060,1003646,"     P/2019 T6 (PANSTARRS)","2019 T6",PANSTARRS,P
+dK19U040,1003647,"     P/2019 U4 (PANSTARRS)","2019 U4",PANSTARRS,P
+dK19V020,1003649,"     P/2019 V2 (Groeller)","2019 V2",Groeller,P
+dK19W010,1003651,"     P/2019 W1 (PANSTARRS)","2019 W1",PANSTARRS,P
+dK19X010,1003650,"     P/2019 X1 (Pruyne)","2019 X1",Pruyne,P
+dK19X020,1003656,"     P/2019 X2 (PANSTARRS)","2019 X2",PANSTARRS,P
+dK19Y030,1003654,"     P/2019 Y3 (Catalina)","2019 Y3",Catalina,P
+dK20B030,1003661,"     C/2020 B3 (Rankin)","2020 B3",Rankin,C
+dK20G010,1003672,"     P/2020 G1 (Pimentel)","2020 G1",Pimentel,P
+dK20K070,1003695,"     C/2020 K7 (PANSTARRS)","2020 K7",PANSTARRS,C
+dK20K090,1003697,"     P/2020 K9 (Lemmon-PANSTARRS)","2020 K9",Lemmon-PANSTARRS,P
+dK20M010,1003698,"     P/2020 M1 (PANSTARRS)","2020 M1",PANSTARRS,P
+dK20O030,1003708,"     P/2020 O3 (PANSTARRS)","2020 O3",PANSTARRS,P
+dK20Q020,1003713,"     C/2020 Q2 (PANSTARRS)","2020 Q2",PANSTARRS,C
+dK20R050,1003721,"     P/2020 R5 (PANSTARRS)","2020 R5",PANSTARRS,P
+dK20S010,1003722,"     P/2020 S1 (PANSTARRS)","2020 S1",PANSTARRS,P
+dK20S040,1003729,"     C/2020 S4 (PANSTARRS)","2020 S4",PANSTARRS,C
+dK20S050,1003730,"     P/2020 S5 (PANSTARRS)","2020 S5",PANSTARRS,P
+dK20S060,1003731,"     P/2020 S6 (Leonard)","2020 S6",Leonard,P
+dK20S070,1003736,"     P/2020 S7 (PANSTARRS)","2020 S7",PANSTARRS,P
+dK20T030,1003733,"     P/2020 T3 (PANSTARRS)","2020 T3",PANSTARRS,P
+dK20U020,1003739,"     P/2020 U2 (PANSTARRS)","2020 U2",PANSTARRS,P
+dK20V030,1003745,"     P/2020 V3 (PANSTARRS)","2020 V3",PANSTARRS,P
+dK20V040,1003746,"     P/2020 V4 (Rankin)","2020 V4",Rankin,P
+dK20W010,1003743,"     P/2020 W1 (Rankin)","2020 W1",Rankin,P
+dK20X010,1003748,"     P/2020 X1 (ATLAS)","2020 X1",ATLAS,P
+dK20X020,1003749,"     C/2020 X2 (ATLAS)","2020 X2",ATLAS,C
+dK21C020,1003765,"     P/2021 C2 (PANSTARRS)","2021 C2",PANSTARRS,P
