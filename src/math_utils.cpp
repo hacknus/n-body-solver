@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void calc_direct_force(vector<Body> &bodies, int a, int b) {
+void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodies) {
     double G = 6.67408e-11;
     double softening = 0.0001;
     double x, y, z;
@@ -24,7 +24,7 @@ void calc_direct_force(vector<Body> &bodies, int a, int b) {
         // here we cheat: only the interactions with the first 9 bodies are calculated (planets)
         // comet to comet interactions are neglected.
         // for (int partner = 0; partner < bodies.size(); partner++) {
-        for (int partner = 0; partner < 9; partner++) {
+        for (int partner = 0; partner < (bodies.size() - ignore_bodies); partner++) {
             if (self != partner) {
                 x = bodies[self].x - bodies[partner].x;
                 y = bodies[self].y - bodies[partner].y;
@@ -47,7 +47,7 @@ void calc_direct_force(vector<Body> &bodies, int a, int b) {
     }
 }
 
-void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type) {
+void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type, uint32_t ignore_bodies) {
     int a = bodies.size() / num_procs * myid;
     int b = bodies.size() / num_procs * (myid + 1);
 
@@ -76,7 +76,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
     // distribute combined body slices to all sub-processes from root-processes
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
 
-    calc_direct_force(bodies, a, b);
+    calc_direct_force(bodies, a, b, ignore_bodies);
 
     for (int i = a; i < b; i++) {
         bodies[i].vx = bodies[i].vx + bodies[i].ax * dt;

@@ -32,16 +32,18 @@ int main(int argc, char **argv) {
     uint64_t num_steps = 0;
     double dt = 0;
     uint32_t save_interval = 0;
+    uint32_t ignore_bodies = 0;
 
 
     if (myid == 0) {
         // only root process reads the input file
         string path;
-        get_initial_values(&path, &num_steps, &dt, &save_interval);
+        get_initial_values(&path, &num_steps, &dt, &save_interval, &ignore_bodies);
         cout << "[OK] path for initial conditions is: " << path << "\n";
         cout << "[OK] simulation steps: " << num_steps << "\n";
         cout << "[OK] dt (internal calculation if 0): " << dt << "\n";
         cout << "[OK] save interval is: " << save_interval << "\n";
+        cout << "[OK] ignoring bodies: " << ignore_bodies << "\n";
         // read initial file
         bodies = read_initial(path);
     }
@@ -53,13 +55,15 @@ int main(int argc, char **argv) {
     if (myid != 0) bodies.resize(size); // sub-processes resize their vector
     // broadcast bodies vector with initial conditions from root-process to sub-processes
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
-    // broadcast number of steps to integrate from root-process to sub-processes
+
+    // broadcast configuration parameters
     MPI_Bcast(&num_steps, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&dt, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     MPI_Bcast(&save_interval, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
 
     if (myid == 0) {
-        cout << "[OK] found " << size << " bodies found" << "\n";
+        cout << "[OK] found " << size << " bodies" << "\n";
         cout << "[OK] starting simulation: \n"
                 "     for " << num_steps << " steps \n "
                 "     on " << num_procs << " cores. \n";
@@ -67,7 +71,7 @@ int main(int argc, char **argv) {
     }
 
     // calculate forces (accelerations) once in order to determine initial time-step
-    calc_direct_force(bodies, 0, bodies.size());
+    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies);
 
     int a = bodies.size() / num_procs * myid;
     int b = bodies.size() / num_procs * (myid + 1);
@@ -81,7 +85,7 @@ int main(int argc, char **argv) {
         if (dt == 0) dt = get_dt(bodies, a, b);
         // dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;
-        leapfrog(bodies, dt, num_procs, myid, mpi_body_type);
+        leapfrog(bodies, dt, num_procs, myid, mpi_body_type, ignore_bodies);
 
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data

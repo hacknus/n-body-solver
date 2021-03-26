@@ -13,8 +13,11 @@ path=../input/solar_jfc_rev.dat
 steps=100000
 dt=86400
 save_interval=10
+ignore_bodies=62
 ```
 If `dt=0` is specified, the program will calculate `dt` according to the internal function.
 assuming that the binary nbody is located in a bin or cmake-build-debug folder.
-
+The parameter `ignore_bodies` determines how many bodies are ignored when calculating the force on other bodies.
+This is useful for small bodies like satellites, comets or asteroids that do not exert a force on large bodies such as planets.
+For `ignore_bodies=62` the last 62 bodies of the dataset are ignored. 
 This code has also been tested on the Piz Daint supercomputer at CSCS. There is a makefile in the `bin` folder.

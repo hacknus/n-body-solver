@@ -9,18 +9,15 @@
 #include <sstream>
 #include <string>
 
-void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *save_interval){
+void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *save_interval, uint32_t *ignore_bodies) {
     string input_path = "../input/input.conf";
 
     // std::ifstream is RAII, i.e. no need to call close
     ifstream cFile(input_path);
-    if (cFile.is_open())
-    {
+    if (cFile.is_open()) {
         string line;
-        while(getline(cFile, line))
-        {
-            if( line.empty() || line[0] == '#' )
-            {
+        while (getline(cFile, line)) {
+            if (line.empty() || line[0] == '#') {
                 continue;
             }
             auto delimiterPos = line.find("=");
@@ -29,12 +26,11 @@ void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *sav
             char *pCh;
             if (name == "path") *path = value;
             if (name == "steps") *steps = strtoul(value.c_str(), &pCh, 10);
-            if (name == "dt") *dt  = strtod(value.c_str(), &pCh);
+            if (name == "dt") *dt = strtod(value.c_str(), &pCh);
             if (name == "save_interval") *save_interval = stoul(value.c_str());
+            if (name == "ignore_bodies") *ignore_bodies = stoul(value.c_str());
         }
-    }
-    else
-    {
+    } else {
         cout << "[ERROR] no input file in : '" << input_path << "'!\n";
         exit(EXIT_FAILURE);
     }
