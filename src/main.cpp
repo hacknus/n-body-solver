@@ -74,15 +74,13 @@ int main(int argc, char **argv) {
         cout << "[OK] found " << size << " bodies" << "\n";
         cout << "[OK] starting simulation: \n"
                 "     for " << num_steps << " steps \n "
-                                            "     on " << num_procs << " cores. \n";
+                "     on " << num_procs << " cores. \n";
         cout << "\n|-------------------------------------------|\n\n";
     }
 
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
 
-    // for some reason this is necessary and on the piz daint it will trigger a
-    // segmentation fault if this is uncommented.....
     snprintf(filename, sizeof(filename), "test_after_f.dat");
     if (myid == 0) write_file(bodies, filename, dt, 0);
 
