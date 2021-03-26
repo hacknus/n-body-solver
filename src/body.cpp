@@ -3,6 +3,7 @@
 //
 
 #include "body.h"
+#include <stddef.h>
 
 void init_body(Body *b, double _m, double _x, double _y, double _z, double _vx, double _vy, double _vz) {
     b->m = _m;
