@@ -63,13 +63,15 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
     const int tag = 13;
     if (myid == 0) {
         MPI_Status status;
+        vector<Body>::size_type ai;
         vector<Body>::size_type bi;
         for (int proc = 1; proc < num_procs; proc++) {
             vector<Body> recv;
-            recv.resize(b - a);
-            bi = bodies.size() / num_procs * proc;
+            ai = bodies.size() / num_procs * proc;
+            bi = bodies.size() / num_procs * (proc + 1);
+            recv.resize(bi - ai);
             MPI_Recv(&recv.front(), recv.size(), mpi_body_type, proc, tag, MPI_COMM_WORLD, &status);
-            copy(begin(recv), end(recv), begin(bodies) + bi);
+            copy(begin(recv), end(recv), begin(bodies) + ai);
         }
     } else {
         vector<Body> send;
@@ -103,7 +105,7 @@ double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::siz
     double a_mag;
     for (vector<Body>::size_type i = a; i < b; i++) {
         a_mag = pow(bodies[i].ax * bodies[i].ax + bodies[i].ay * bodies[i].ay + bodies[i].az * bodies[i].az, 0.5);
-        dt[i - a] = 0.1 * sqrt(softening / a_mag);
+        dt[i - a] = 0.01 * sqrt(softening / a_mag);
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);
     min_dt = *min_element(dt, dt + n_dt);

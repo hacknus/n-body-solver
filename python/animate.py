@@ -71,16 +71,17 @@ j = 0
 ThreeD = False
 
 while True:
-    if not os.path.exists(f'../output/out_{j:05d}.dat'):
-        break
-    print(f'reading out_{j:05d}.bin')
-    master_file = f'../output/out_{j:05d}.dat'
+
 
     # if j >= 100:
     #     break
-    if j % 10 == 0:
+    if j % 1000 == 0:
+        if not os.path.exists(f'../output/out_{j:07d}.dat'):
+            break
+        print(f'reading out_{j:07d}.bin')
+        master_file = f'../output/out_{j:07d}.dat'
         df = read_binary(master_file)
-        print(df.m[0])
+        # print(df.dt[0])
         if j == 0:
             for i in range(len(df)):
                 planets.append(Planet(df.loc[i]))
@@ -118,12 +119,12 @@ colors = ["yellow" for i in range(len(planets))]
 if ThreeD:
     lines = [ax.plot([], [], [], '-', linewidth=0.05, c=planet.color)[0]
              for planet in planets]
-    pts = [ax.plot([], [], [], color=planet.color, marker='.', lw=0, markersize=0.5, linestyle="")[0]
+    pts = [ax.plot([], [], [], color=planet.color, marker=',', lw=0, linestyle="")[0]
            for planet in planets]
 else:
     lines = [ax.plot([], [], '-', linewidth=0.05, c=planet.color)[0]
              for planet in planets]
-    pts = [ax.plot([], [], color=planet.color, marker='.', lw=0, markersize=0.5, linestyle="")[0]
+    pts = [ax.plot([], [], color=planet.color, marker=',', lw=0, linestyle="")[0]
            for planet in planets]
 
 data = planets
@@ -154,9 +155,9 @@ def animate(i):
         y = planet.y[i]  # planet[1][i]
         z = planet.z[i]  # planet[2][i]
 
-        xline = planet.x[:i]  # planet[0][:i]
-        yline = planet.y[:i]  # planet[1][:i]
-        zline = planet.z[:i]  # planet[2][:i]
+        xline = [] #planet.x[:i]  # planet[0][:i]
+        yline = [] #planet.y[:i]  # planet[1][:i]
+        zline = [] #planet.z[:i]  # planet[2][:i]
 
         pt.set_data(x, y)
         if ThreeD:
@@ -203,14 +204,14 @@ ax.set_ylim(8, 10)
 
 x = np.max([abs(p.x[0]) for p in planets])
 y = np.max([abs(p.y[0]) for p in planets])
-ax.set_xlim(-1 * x, 1 * x)
-ax.set_ylim(-1 * y, 1 * y)
+ax.set_xlim(-1.5 * y, 1.5 * y)
+ax.set_ylim(-1.5 * y, 1.5 * y)
 
 if ThreeD:
     ax.set_zlim(-size, size)
     ax.set_zlim(-10, 10)
 
-gif = False
+gif = True
 mp4 = True  # True
 show = False
 
@@ -224,12 +225,12 @@ ani = animation.FuncAnimation(fig, animate, init_func=init,
 # save animation
 if gif:
     print("saving gif...")
-    ani.save('output/galaxy.gif', savefig_kwargs={'facecolor': 'black'}, writer='imagemagick', dpi=100)
+    ani.save('../output/galaxy.gif', savefig_kwargs={'facecolor': 'black'}, writer='imagemagick', dpi=300)
 if mp4:
     # needs ffmpeg to be installed
     mywriter = animation.FFMpegWriter(fps=24)
     print("saving mp4...")
-    ani.save('output/galaxy.mp4', savefig_kwargs={'facecolor': 'black'}, writer=mywriter, dpi=600)
+    ani.save('../output/galaxy.mp4', savefig_kwargs={'facecolor': 'black'}, writer=mywriter, dpi=600)
 if show:
     print("showing")
     plt.show()
