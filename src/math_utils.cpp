@@ -75,7 +75,7 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
         }
     } else {
         vector<Body> send;
-        send = vector<Body>(bodies.begin() + a, bodies.begin() + b);
+        send = vector<Body>(bodies.begin() + a, bodies.begin() + b - 1);
         MPI_Send(&send.front(), send.size(), MPI_BODY_TYPE, 0, tag, MPI_COMM_WORLD);
     }
 
