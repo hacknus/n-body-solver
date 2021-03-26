@@ -67,8 +67,8 @@ int main(int argc, char **argv) {
     MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&G, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
-    a = floor(bodies.size() / num_procs * myid);
-    b = floor(bodies.size() / num_procs * (myid + 1));
+    a = floor((float)bodies.size() / (float)num_procs * myid);
+    b = floor((float)bodies.size() / (float)num_procs * (myid + 1));
 
 
     if (myid == 0) {
