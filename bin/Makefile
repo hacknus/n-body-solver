@@ -30,7 +30,7 @@ clean:
 	rm -f *.o *.mod
 
 cleanall:
-	rm -f *.o *.mod nbody main_out.*
+	rm -f *.o *.mod nbody nbody.out nbody.err
 
 %.o:    $(SRCDIR)/%.cpp
 	$(CC) $(CFLAGS) -c $<
