@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>      // std::ofstream
 #include <vector>
 #include <string>
 #include "body.h"
@@ -10,6 +11,15 @@ using namespace std;
 
 
 int main(int argc, char **argv) {
+
+    streambuf *psbuf, *backup;
+    ofstream filestr;
+    filestr.open ("test.txt");
+
+    backup = cout.rdbuf();     // back up cout's streambuf
+
+    psbuf = filestr.rdbuf();   // get file's streambuf
+    cout.rdbuf(psbuf);
 
     int num_procs, myid;
 
