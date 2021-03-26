@@ -11,9 +11,11 @@
 
 using namespace std;
 
-void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodies);
+void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodies, float G);
 
-void leapfrog(vector<Body> &bodies, double dt, int num_procs, int my_id, MPI_Datatype mpi_body_type, uint32_t ignore_bodies);
+void
+leapfrog(vector<Body> &bodies, double dt, int num_procs, int my_id, MPI_Datatype mpi_body_type, uint32_t ignore_bodies,
+         float G);
 
 double get_dt(vector<Body> &particles, int a, int b);
 

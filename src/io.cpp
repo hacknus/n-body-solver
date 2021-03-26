@@ -9,7 +9,8 @@
 #include <sstream>
 #include <string>
 
-void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *save_interval, uint32_t *ignore_bodies) {
+void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *save_interval, uint32_t *ignore_bodies,
+                        float *G) {
     string input_path = "../input/input.conf";
 
     // std::ifstream is RAII, i.e. no need to call close
@@ -29,6 +30,7 @@ void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *sav
             if (name == "dt") *dt = strtod(value.c_str(), &pCh);
             if (name == "save_interval") *save_interval = stoul(value.c_str());
             if (name == "ignore_bodies") *ignore_bodies = stoul(value.c_str());
+            if (name == "G") *G = stof(value.c_str());
         }
     } else {
         cout << "[ERROR] no input file in : '" << input_path << "'!\n";
@@ -57,7 +59,7 @@ void write_file(vector<Body> bodies, char filename[], double dt, double t) {
     outFile.close();
 }
 
-vector<Body> read_initial(string path) {
+vector<Body> read_initial(string path, float G) {
     ifstream csvFile;
     csvFile.open(path);
 
@@ -91,9 +93,16 @@ vector<Body> read_initial(string path) {
             // TODO: save name in bodies vector and eventually in binary .dat output.
             row.push_back(stod(lineStream, &sz)); // convert to double
         }
-        float au = 1.5e11;
-        float m_sol = 2e30;
-        float day = 24.0 * 60.0 * 60.0;
+        if (G!=1){
+            float au = 1.5e11;
+            float m_sol = 2e30;
+            float day = 24.0 * 60.0 * 60.0;
+        } else {
+            float au = 1;
+            float m_sol = 1;
+            float day = 1;
+        }
+
 
         Body b = Body();
         init_body(&b, row[0] * m_sol,

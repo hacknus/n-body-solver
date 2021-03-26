@@ -10,8 +10,7 @@
 
 using namespace std;
 
-void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodies) {
-    double G = 6.67408e-11;
+void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodies, float G) {
     double softening = 0.0001;
     double x, y, z;
 
@@ -47,7 +46,7 @@ void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodie
     }
 }
 
-void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type, uint32_t ignore_bodies) {
+void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type, uint32_t ignore_bodies, float G) {
     int a = bodies.size() / num_procs * myid;
     int b = bodies.size() / num_procs * (myid + 1);
 
@@ -76,7 +75,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
     // distribute combined body slices to all sub-processes from root-processes
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
 
-    calc_direct_force(bodies, a, b, ignore_bodies);
+    calc_direct_force(bodies, a, b, ignore_bodies, G);
 
     for (int i = a; i < b; i++) {
         bodies[i].vx = bodies[i].vx + bodies[i].ax * dt;

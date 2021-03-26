@@ -14,6 +14,7 @@ steps=100000
 dt=86400
 save_interval=10
 ignore_bodies=62
+G=6.67408e-11
 ```
 If `dt=0` is specified, the program will calculate `dt` according to the internal function.
 assuming that the binary nbody is located in a bin or cmake-build-debug folder.

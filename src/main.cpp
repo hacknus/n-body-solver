@@ -33,19 +33,20 @@ int main(int argc, char **argv) {
     double dt = 0;
     uint32_t save_interval = 0;
     uint32_t ignore_bodies = 0;
-
+    float G = 1;
 
     if (myid == 0) {
         // only root process reads the input file
         string path;
-        get_initial_values(&path, &num_steps, &dt, &save_interval, &ignore_bodies);
+        get_initial_values(&path, &num_steps, &dt, &save_interval, &ignore_bodies, &G);
         cout << "[OK] path for initial conditions is: " << path << "\n";
         cout << "[OK] simulation steps: " << num_steps << "\n";
         cout << "[OK] dt (internal calculation if 0): " << dt << "\n";
         cout << "[OK] save interval is: " << save_interval << "\n";
         cout << "[OK] ignoring bodies: " << ignore_bodies << "\n";
+        cout << "[OK] G is: " << G << "\n";
         // read initial file
-        bodies = read_initial(path);
+        bodies = read_initial(path, G);
     }
 
     uint32_t size = bodies.size();
@@ -71,7 +72,7 @@ int main(int argc, char **argv) {
     }
 
     // calculate forces (accelerations) once in order to determine initial time-step
-    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies);
+    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
 
     int a = bodies.size() / num_procs * myid;
     int b = bodies.size() / num_procs * (myid + 1);
@@ -85,7 +86,7 @@ int main(int argc, char **argv) {
         if (dt == 0) dt = get_dt(bodies, a, b);
         // dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;
-        leapfrog(bodies, dt, num_procs, myid, mpi_body_type, ignore_bodies);
+        leapfrog(bodies, dt, num_procs, myid, mpi_body_type, ignore_bodies, G);
 
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
