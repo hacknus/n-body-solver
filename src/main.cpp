@@ -71,8 +71,12 @@ int main(int argc, char **argv) {
         cout << "\n|-------------------------------------------|\n\n";
     }
 
+    write_file(bodies, "test_before_f.dat", dt, 0);
+
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
+
+    write_file(bodies, "test_after_f.dat", dt, 0);
 
     vector<Body>::size_type a = bodies.size() / num_procs * myid;
     vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
