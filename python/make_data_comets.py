@@ -68,4 +68,4 @@ for i in ids_comets:
 
 df = pd.DataFrame(data=dic)
 print(df)
-df.to_csv("../input/solar_jfc.dat", index=False)
+df.to_csv("../input/solar_jfc.csv", index=False)
