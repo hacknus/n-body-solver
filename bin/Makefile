@@ -4,7 +4,7 @@
 
 
 #------------------
-CC = mpic++
+CC = CC
 
 # CC compilation options
 #-----------------------------
