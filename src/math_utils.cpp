@@ -100,7 +100,7 @@ double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::siz
     double min_dt_out = 0.001;
     double a_mag;
     for (vector<Body>::size_type i = a; i < b; i++) {
-        a_mag = pow(pow(bodies[i].ax, 2) + pow(bodies[i].ay, 2) + pow(bodies[i].az, 2), 0.5);
+        a_mag = pow(bodies[i].ax * bodies[i].ax + bodies[i].ay * bodies[i].ay + bodies[i].az * bodies[i].az, 0.5);
         dt[i - a] = 0.1 * sqrt(softening / a_mag);
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);

@@ -40,10 +40,9 @@ void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *sav
 
 
 void write_file(vector<Body> bodies, char filename[], double dt, double t) {
-    vector<Body>::size_type n = bodies.size();
     fstream outFile;
     outFile.open(filename, ios::out | ios::binary);
-    for (vector<Body>::size_type index = 0; index < n; index++) {
+    for (vector<Body>::size_type index = 0; index < bodies.size(); index++) {
         // TODO: save name as well
         outFile.write((char *) &bodies[index].m, sizeof(double));
         outFile.write((char *) &bodies[index].x, sizeof(double));
@@ -93,7 +92,7 @@ vector<Body> read_initial(string path, float G) {
             row.push_back(stod(lineStream, &sz)); // convert to double
         }
         float au, m_sol, day;
-        if (G!=1){
+        if (G != 1) {
             au = 1.5e11;
             m_sol = 2e30;
             day = 24.0 * 60.0 * 60.0;

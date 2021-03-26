@@ -48,10 +48,10 @@ int main(int argc, char **argv) {
         bodies = read_initial(path, G);
     }
 
-    vector<Body>::size_type size = bodies.size();
+    uint32_t size = bodies.size();
 
     // broadcast size of bodies vector of root-process to all sub-processes
-    MPI_Bcast(&size, 1, MPI_UNSIGNED, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&size, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     if (myid != 0) bodies.resize(size); // sub-processes resize their vector
     // broadcast bodies vector with initial conditions from root-process to sub-processes
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
