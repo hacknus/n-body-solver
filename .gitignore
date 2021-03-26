@@ -7,6 +7,9 @@
 # ignore all binaries (bin folder is used by CSCS supercomputer)
 /bin/
 
+# ignore job submission shell scripts
+/submit_job.sh
+
 # Created by https://www.toptal.com/developers/gitignore/api/clion
 # Edit at https://www.toptal.com/developers/gitignore?templates=clion
 
