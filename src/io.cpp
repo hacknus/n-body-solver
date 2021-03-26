@@ -93,14 +93,15 @@ vector<Body> read_initial(string path, float G) {
             // TODO: save name in bodies vector and eventually in binary .dat output.
             row.push_back(stod(lineStream, &sz)); // convert to double
         }
+        float au, m_sol, day;
         if (G!=1){
-            float au = 1.5e11;
-            float m_sol = 2e30;
-            float day = 24.0 * 60.0 * 60.0;
+            au = 1.5e11;
+            m_sol = 2e30;
+            day = 24.0 * 60.0 * 60.0;
         } else {
-            float au = 1;
-            float m_sol = 1;
-            float day = 1;
+            au = 1;
+            m_sol = 1;
+            day = 1;
         }
 
 
