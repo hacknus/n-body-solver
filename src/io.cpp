@@ -7,7 +7,6 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <string>
 
 void write_file(vector<Body> bodies, char filename[], double dt, double t) {
     int n = bodies.size();

@@ -7,6 +7,7 @@
 
 
 #include <vector>
+#include <string>
 #include "body.h"
 
 using namespace std;
