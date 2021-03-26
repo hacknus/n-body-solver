@@ -8,7 +8,7 @@ CC = CC
 
 # CC compilation options
 #-----------------------------
-CFLAGS = -I. -I../inc -std=c++14 -O3 -ffast-math
+CFLAGS = -I. -I../inc -std=c++17 -O3 -ffast-math
 
 # Linker options
 #---------------
