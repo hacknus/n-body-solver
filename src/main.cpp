@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <math.h>
 #include "body.h"
 #include "math_utils.h"
 #include "io.h"
@@ -66,8 +67,8 @@ int main(int argc, char **argv) {
     MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&G, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
-    a = bodies.size() / num_procs * myid;
-    b = bodies.size() / num_procs * (myid + 1);
+    a = floor(bodies.size() / num_procs * myid);
+    b = floor(bodies.size() / num_procs * (myid + 1));
 
 
     if (myid == 0) {

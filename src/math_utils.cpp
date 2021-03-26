@@ -50,8 +50,8 @@ void calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<B
 void
 leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type,
          unsigned long int ignore_bodies, float G) {
-    vector<Body>::size_type a = bodies.size() / num_procs * myid;
-    vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
+    vector<Body>::size_type a = floor(bodies.size() / num_procs * myid);
+    vector<Body>::size_type b = floor(bodies.size() / num_procs * (myid + 1));
 
     for (vector<Body>::size_type i = a; i < b; i++) {
         bodies[i].x = bodies[i].x + bodies[i].vx * 0.5 * dt;
@@ -67,8 +67,8 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
         vector<Body>::size_type bi;
         for (int proc = 1; proc < num_procs; proc++) {
             vector<Body> recv;
-            ai = bodies.size() / num_procs * proc;
-            bi = bodies.size() / num_procs * (proc + 1);
+            ai = floor(bodies.size() / num_procs * proc);
+            bi = floor(bodies.size() / num_procs * (proc + 1));
             recv.resize(bi - ai);
             MPI_Recv(&recv.front(), recv.size(), mpi_body_type, proc, tag, MPI_COMM_WORLD, &status);
             copy(begin(recv), end(recv), begin(bodies) + ai);
