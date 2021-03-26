@@ -11,7 +11,7 @@
 using namespace std;
 
 void calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b,
-                  uint32_t ignore_bodies, float G) {
+                       uint32_t ignore_bodies, float G) {
     double softening = 0.0001;
     double x, y, z;
 
@@ -95,15 +95,13 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
 double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b) {
 
     double dt[b - a];
-    int index = 0;
     double softening = 0.01;
-    double min_dt = 0.001;
+    double min_dt;
     double min_dt_out = 0.001;
-    double a_mag = 0;
+    double a_mag;
     for (vector<Body>::size_type i = a; i < b; i++) {
         a_mag = pow(pow(bodies[i].ax, 2) + pow(bodies[i].ay, 2) + pow(bodies[i].az, 2), 0.5);
         dt[i - a] = 0.1 * sqrt(softening / a_mag);
-        index++;
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);
     min_dt = *min_element(dt, dt + n_dt);

@@ -29,7 +29,7 @@ def read_collision_data(filename="dubinski.tab"):
     #df.reset_index(inplace=True)
     print(df.head())
     print(f"saving {len(df)} objects to cdata.csv")
-    df.to_csv("../input/milky_way_andromeda.csv", index=False)
+    df.to_csv("../input/milky_way_andromeda.csv")
     return
 
 
