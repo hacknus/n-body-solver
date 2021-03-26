@@ -1,21 +1,39 @@
+############################ -*- Mode: Makefile -*- ###########################
+## Makefile ---
+###############################################################################
+
+
+#------------------
 CC = CC
+
+# CC compilation options
+#-----------------------------
 CFLAGS = -I. -I../inc -O3 -ffast-math
+
+# Linker options
+#---------------
+LDFLAGS = -O3
+
+
+# Sources directories
+#--------------------
 SRCDIR = ../src
 
-all: main.o body.o math_utils.o io.o
-	$(CC) $(CFLAGS) -o main main.o body.o math_utils.o io.o
+# Objects
+#------------
+OBJ = body.o io.o math_utils.o main.o
 
-main.o: $(SRCDIR)/main.cpp
-	$(CC) $(CFLAGS) -c $(SRCDIR)/main.cpp
-
-body.o: $(SRCDIR)/body.cpp
-	$(CC) $(CFLAGS) -c $(SRCDIR)/body.cpp
-
-io.o: $(SRCDIR)/io.cpp
-	$(CC) $(CFLAGS) -c $(SRCDIR)/io.cpp
-
-math_utils.o: $(SRCDIR)/math_utils.cpp
-	$(CC) $(CFLAGS) -c $(SRCDIR)/math_utils.cpp
+main:  $(OBJ)
+	$(CC) $(LDFLAGS) $(OBJ) -o main
 
 clean:
-	rm main main.o body.o math_utils.o io.o
+	rm -f *.o *.mod
+
+cleanall:
+	rm -f *.o *.mod main main_out.*
+
+%.o:    $(SRCDIR)/%.cpp
+	$(CC) $(CFLAGS) -c $<
+
+
+
