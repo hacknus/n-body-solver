@@ -72,9 +72,8 @@ vector<Body> read_initial(string path, float G) {
     getline(csvFile, line); // skip the 1st line
     while (getline(csvFile, line)) {
 
-        if (line.empty()) // skip empty lines:
+        if (line.empty()) // skip empty lines
         {
-            //cout << "empty line!" << endl;
             continue;
         }
 
@@ -102,19 +101,12 @@ vector<Body> read_initial(string path, float G) {
             day = 1;
         }
 
-
         Body b = Body();
         init_body(&b, row[0] * m_sol,
                   row[1] * au, row[2] * au, row[3] * au,
                   row[4] * au / day, row[5] * au / day, row[6] * au / day);
         bodies.push_back(b);
     }
-
-    // cout << "size ts = " << timeStampIMU.size() << endl;
-    //    for (size_t i = 0; i < bodies.size(); i++) {
-    //        cout << "mass = " << bodies[i].m << endl;
-    //        cout << "--------------------------------" << endl;
-    //    }
 
     return bodies;
 }

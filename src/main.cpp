@@ -83,7 +83,6 @@ int main(int argc, char **argv) {
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
         if (dt == 0) dt = get_dt(bodies, a, b);
-        // dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;
         leapfrog(bodies, dt, num_procs, myid, mpi_body_type, ignore_bodies, G);
 
