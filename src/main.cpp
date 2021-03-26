@@ -23,7 +23,6 @@ int main(int argc, char **argv) {
         cout << "|-------------------------------------------|\n";
     }
 
-    vector<Body>::size_type index = 0;
     vector<Body> bodies;
 
     // create MPI_Datatype to broadcast vector of custom structs
@@ -49,7 +48,7 @@ int main(int argc, char **argv) {
         bodies = read_initial(path, G);
     }
 
-    uint32_t size = bodies.size();
+    vector<Body>::size_type size = bodies.size();
 
     // broadcast size of bodies vector of root-process to all sub-processes
     MPI_Bcast(&size, 1, MPI_UNSIGNED, 0, MPI_COMM_WORLD);
@@ -62,6 +61,7 @@ int main(int argc, char **argv) {
     MPI_Bcast(&dt, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     MPI_Bcast(&save_interval, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&G, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
     if (myid == 0) {
         cout << "[OK] found " << size << " bodies" << "\n";
@@ -74,8 +74,8 @@ int main(int argc, char **argv) {
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
 
-    int a = bodies.size() / num_procs * myid;
-    int b = bodies.size() / num_procs * (myid + 1);
+    vector<Body>::size_type a = bodies.size() / num_procs * myid;
+    vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
 
     double t = 0;
 

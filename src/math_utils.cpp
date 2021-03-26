@@ -10,11 +10,13 @@
 
 using namespace std;
 
-void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodies, float G) {
+void
+calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b, uint32_t ignore_bodies,
+                  float G) {
     double softening = 0.0001;
     double x, y, z;
 
-    for (int self = a; self < b; self++) {
+    for (vector<Body>::size_type self = a; self < b; self++) {
 
         bodies[self].ax = 0;
         bodies[self].ay = 0;
@@ -23,20 +25,20 @@ void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodie
         // here we cheat: only the interactions with the first 9 bodies are calculated (planets)
         // comet to comet interactions are neglected.
         // for (int partner = 0; partner < bodies.size(); partner++) {
-        for (int partner = 0; partner < (bodies.size() - ignore_bodies); partner++) {
+        for (vector<Body>::size_type partner = 0; partner < (bodies.size() - ignore_bodies); partner++) {
             if (self != partner) {
                 x = bodies[self].x - bodies[partner].x;
                 y = bodies[self].y - bodies[partner].y;
                 z = bodies[self].z - bodies[partner].z;
                 bodies[self].ax -=
                         G * bodies[partner].m * x / pow(pow(x, 2) + pow(y, 2) + pow(z, 2)
-                        + pow(softening, 2), 1.5);
+                                                        + pow(softening, 2), 1.5);
                 bodies[self].ay -=
                         G * bodies[partner].m * y / pow(pow(x, 2) + pow(y, 2) + pow(z, 2)
-                        + pow(softening, 2), 1.5);
+                                                        + pow(softening, 2), 1.5);
                 bodies[self].az -=
                         G * bodies[partner].m * z / pow(pow(x, 2) + pow(y, 2) + pow(z, 2)
-                        + pow(softening, 2), 1.5);
+                                                        + pow(softening, 2), 1.5);
                 //                particles[self].epot +=
                 //                        G * particles[partner].m * particles[self].m /
                 //                        pow(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(softening, 2), 0.5);
@@ -46,11 +48,13 @@ void calc_direct_force(vector<Body> &bodies, int a, int b, uint32_t ignore_bodie
     }
 }
 
-void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type, uint32_t ignore_bodies, float G) {
-    int a = bodies.size() / num_procs * myid;
-    int b = bodies.size() / num_procs * (myid + 1);
+void
+leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type, uint32_t ignore_bodies,
+         float G) {
+    vector<Body>::size_type a = bodies.size() / num_procs * myid;
+    vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
 
-    for (int i = a; i < b; i++) {
+    for (vector<Body>::size_type i = a; i < b; i++) {
         bodies[i].x = bodies[i].x + bodies[i].vx * 0.5 * dt;
         bodies[i].y = bodies[i].y + bodies[i].vy * 0.5 * dt;
         bodies[i].z = bodies[i].z + bodies[i].vz * 0.5 * dt;
@@ -77,7 +81,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
 
     calc_direct_force(bodies, a, b, ignore_bodies, G);
 
-    for (int i = a; i < b; i++) {
+    for (vector<Body>::size_type i = a; i < b; i++) {
         bodies[i].vx = bodies[i].vx + bodies[i].ax * dt;
         bodies[i].vy = bodies[i].vy + bodies[i].ay * dt;
         bodies[i].vz = bodies[i].vz + bodies[i].az * dt;
@@ -89,7 +93,7 @@ void leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Data
 
 }
 
-double get_dt(vector<Body> &bodies, int a, int b) {
+double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b) {
 
     double dt[b - a];
     int index = 0;
@@ -97,7 +101,7 @@ double get_dt(vector<Body> &bodies, int a, int b) {
     double min_dt = 0.001;
     double min_dt_out = 0.001;
     double a_mag = 0;
-    for (int i = a; i < b; i++) {
+    for (vector<Body>::size_type i = a; i < b; i++) {
         a_mag = pow(pow(bodies[i].ax, 2) + pow(bodies[i].ay, 2) + pow(bodies[i].az, 2), 0.5);
         dt[i - a] = 0.1 * sqrt(softening / a_mag);
         index++;

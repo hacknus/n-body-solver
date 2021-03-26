@@ -40,11 +40,10 @@ void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *sav
 
 
 void write_file(vector<Body> bodies, char filename[], double dt, double t) {
-    int n = bodies.size();
-    int index = 0;
+    vector<Body>::size_type n = bodies.size();
     fstream outFile;
     outFile.open(filename, ios::out | ios::binary);
-    for (index = 0; index < n; index++) {
+    for (vector<Body>::size_type index = 0; index < n; index++) {
         // TODO: save name as well
         outFile.write((char *) &bodies[index].m, sizeof(double));
         outFile.write((char *) &bodies[index].x, sizeof(double));
