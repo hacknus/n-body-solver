@@ -31,10 +31,10 @@ int main(int argc, char **argv) {
     vector<Body>::size_type a, b;
     double t = 0;
     char filename[128]; // make sure it's big enough
-    uint64_t num_steps = 0;
+    unsigned long long int num_steps = 0;
     double dt = 0;
-    uint32_t save_interval = 0;
-    uint32_t ignore_bodies = 0;
+    unsigned long int save_interval = 0;
+    unsigned long int ignore_bodies = 0;
     float G = 1;
 
     if (myid == 0) {
@@ -51,13 +51,13 @@ int main(int argc, char **argv) {
         bodies = read_initial(path, G);
     }
 
-    uint32_t size = bodies.size();
+    unsigned long int size = bodies.size();
 
     // broadcast size of bodies vector of root-process to all sub-processes
     MPI_Bcast(&size, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     if (myid != 0) bodies.resize(size); // sub-processes resize their vector
     // broadcast bodies vector with initial conditions from root-process to sub-processes
-    MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&bodies.front(), size, mpi_body_type, 0, MPI_COMM_WORLD);
 
     // broadcast configuration parameters
     MPI_Bcast(&num_steps, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
@@ -66,8 +66,10 @@ int main(int argc, char **argv) {
     MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&G, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
+    cout << "nun_procs: " << num_procs << " myid: " << myid << " len: " << bodies.size() << endl;
     a = bodies.size() / num_procs * myid;
     b = bodies.size() / num_procs * (myid + 1);
+    cout << "a: " << a << " b: " << b << " len: " << bodies.size() << endl;
 
 
     if (myid == 0) {
@@ -77,15 +79,18 @@ int main(int argc, char **argv) {
                 "     on " << num_procs << " cores. \n";
         cout << "\n|-------------------------------------------|\n\n";
     }
-
+    cout << "calculating force \n";
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
+    cout << "calculated force \n";
 
     snprintf(filename, sizeof(filename), "test_after_f.dat");
     if (myid == 0) write_file(bodies, filename, dt, 0);
+    cout << "saved file \n";
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
+        cout << "step " << step << endl;
         if (dt == 0) dt = get_dt(bodies, a, b);
         // dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;

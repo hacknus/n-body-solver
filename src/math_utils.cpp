@@ -11,7 +11,7 @@
 using namespace std;
 
 void calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b,
-                       uint32_t ignore_bodies, float G) {
+                       unsigned long int ignore_bodies, float G) {
     double softening = 0.0001;
     double x, y, z;
 
@@ -48,8 +48,8 @@ void calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<B
 }
 
 void
-leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type, uint32_t ignore_bodies,
-         float G) {
+leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type,
+         unsigned long int ignore_bodies, float G) {
     vector<Body>::size_type a = bodies.size() / num_procs * myid;
     vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
 
@@ -63,11 +63,13 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
     const int tag = 13;
     if (myid == 0) {
         MPI_Status status;
+        vector<Body>::size_type bi;
         for (int proc = 1; proc < num_procs; proc++) {
             vector<Body> recv;
             recv.resize(b - a);
+            bi = bodies.size() / num_procs * proc;
             MPI_Recv(&recv.front(), recv.size(), mpi_body_type, proc, tag, MPI_COMM_WORLD, &status);
-            copy(begin(recv), end(recv), begin(bodies) + bodies.size() / num_procs * proc);
+            copy(begin(recv), end(recv), begin(bodies) + bi);
         }
     } else {
         vector<Body> send;
