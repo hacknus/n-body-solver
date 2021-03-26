@@ -7,7 +7,7 @@ def read_collision_data(filename="dubinski.tab"):
     header = ["m", "x", "y", "z", "vx", "vy", "vz"]
     df = pd.read_csv(filename, sep="\s", names=header, engine="python")
 
-    fac = 1 / 128
+    fac = 1 / 32
 
     subset = 81920 * fac
     subset /= 2
