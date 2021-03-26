@@ -8,7 +8,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <algorithm>
 
 void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *save_interval){
     string input_path = "../input/input.conf";
