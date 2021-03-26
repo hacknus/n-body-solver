@@ -66,10 +66,8 @@ int main(int argc, char **argv) {
     MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&G, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
-    cout << "nun_procs: " << num_procs << " myid: " << myid << " len: " << bodies.size() << endl;
     a = bodies.size() / num_procs * myid;
     b = bodies.size() / num_procs * (myid + 1);
-    cout << "a: " << a << " b: " << b << " len: " << bodies.size() << endl;
 
 
     if (myid == 0) {
@@ -79,18 +77,11 @@ int main(int argc, char **argv) {
                 "     on " << num_procs << " cores. \n";
         cout << "\n|-------------------------------------------|\n\n";
     }
-    cout << "calculating force \n";
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
-    cout << "calculated force \n";
-
-    snprintf(filename, sizeof(filename), "test_after_f.dat");
-    if (myid == 0) write_file(bodies, filename, dt, 0);
-    cout << "saved file \n";
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
-        cout << "step " << step << endl;
         if (dt == 0) dt = get_dt(bodies, a, b);
         // dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;
