@@ -29,13 +29,7 @@ def read_collision_data(filename="dubinski.tab"):
     #df.reset_index(inplace=True)
     print(df.head())
     print(f"saving {len(df)} objects to cdata.csv")
-    df.to_csv("cdata.csv", index=False)
-
-    out = []
-    for i, row in df.iterrows():
-        out.append([row.m, row.x, row.y, row.z, row.vx, row.vy, row.vz])
-    out = np.array(out)
-    out.tofile("cdata.dat")
+    df.to_csv("../input/milky_way_andromeda.csv", index=False)
     return
 
 
