@@ -1,4 +1,4 @@
-CC = mpic++
+CC = CC
 CFLAGS = -I. -I../inc -O3 -ffast-math
 SRCDIR = ../src
 
