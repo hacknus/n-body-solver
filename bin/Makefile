@@ -8,7 +8,7 @@ CC = CC
 
 # CC compilation options
 #-----------------------------
-CFLAGS = -I. -I../inc -O3 -ffast-math
+CFLAGS = -I../inc -O3 -ffast-math
 
 # Linker options
 #---------------
