@@ -74,14 +74,14 @@ int main(int argc, char **argv) {
         cout << "\n|-------------------------------------------|\n\n";
     }
 
-    snprintf(filename, sizeof(filename), "test_before_f.dat");
-    write_file(bodies, filename, dt, 0);
+    // snprintf(filename, sizeof(filename), "test_before_f.dat");
+    // write_file(bodies, filename, dt, 0);
 
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
 
-    snprintf(filename, sizeof(filename), "test_after_f.dat");
-    write_file(bodies, filename, dt, 0);
+    // snprintf(filename, sizeof(filename), "test_after_f.dat");
+    // write_file(bodies, filename, dt, 0);
 
     vector<Body>::size_type a = bodies.size() / num_procs * myid;
     vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
