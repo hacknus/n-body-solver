@@ -30,21 +30,20 @@ int main(int argc, char **argv) {
     MPI_Datatype mpi_body_type = make_mpi_type();
 
     uint64_t num_steps = 0;
+    double dt = 0;
+    uint32_t save_interval = 0;
+
 
     if (myid == 0) {
         // only root process reads the input file
-
-        if (argc < 3) {
-            cout << "[ERROR] no input file/step number specified! \n";
-            cout << "        correct usage: mpirun -np $num_cores nBody $num_steps $path_to_input_file \n";
-            exit(EXIT_FAILURE);
-        }
-
-        cout << "[OK] root is reading input data from " << argv[2] << "\n";
-        char *pCh;
-        num_steps = strtoul(argv[1], &pCh, 10);
-
-        bodies = read_initial(argv[2]);
+        string path;
+        get_initial_values(&path, &num_steps, &dt, &save_interval);
+        cout << "[OK] path for initial conditions is: " << path << "\n";
+        cout << "[OK] simulation steps: " << num_steps << "\n";
+        cout << "[OK] dt (internal calculation if 0): " << dt << "\n";
+        cout << "[OK] save interval is: " << save_interval << "\n";
+        // read initial file
+        bodies = read_initial(path);
     }
 
     uint32_t size = bodies.size();
@@ -56,6 +55,8 @@ int main(int argc, char **argv) {
     MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
     // broadcast number of steps to integrate from root-process to sub-processes
     MPI_Bcast(&num_steps, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&dt, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&save_interval, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
 
     if (myid == 0) {
         cout << "[OK] found " << size << " bodies found" << "\n";
@@ -70,19 +71,19 @@ int main(int argc, char **argv) {
 
     int a = bodies.size() / num_procs * myid;
     int b = bodies.size() / num_procs * (myid + 1);
-    double dt;
+
     double t = 0;
 
     char filename[32]; // make sure it's big enough
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
-        dt = get_dt(bodies, a, b);
-        dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
+        if (dt == 0) dt = get_dt(bodies, a, b);
+        // dt = 24 * 60 * 60; // overwrite dt, since get_dt functions creates too small timesteps for the solar system
         t += dt;
         leapfrog(bodies, dt, num_procs, myid, mpi_body_type);
 
-        if ((myid == 0) && (step % 10 == 0)) {
+        if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
             // important:   the slice of the bodies that are distributed to the root process are already dt/2
             //              propagated further than all the others. This deviation is minimal and

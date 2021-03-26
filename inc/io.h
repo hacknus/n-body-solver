@@ -12,6 +12,8 @@
 
 using namespace std;
 
+void get_initial_values(string *path, uint64_t *steps, double *dt, uint32_t *save_interval);
+
 void write_file(vector<Body> bodies, char filename[], double dt, double t);
 
 vector<Body> read_initial(string path);
