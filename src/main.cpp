@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 
 
     double t = 0;
-    char filename[32]; // make sure it's big enough
+    char filename[128]; // make sure it's big enough
     uint64_t num_steps = 0;
     double dt = 0;
     uint32_t save_interval = 0;
