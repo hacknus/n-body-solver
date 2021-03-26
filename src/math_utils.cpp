@@ -105,7 +105,7 @@ double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::siz
     double a_mag;
     for (vector<Body>::size_type i = a; i < b; i++) {
         a_mag = pow(bodies[i].ax * bodies[i].ax + bodies[i].ay * bodies[i].ay + bodies[i].az * bodies[i].az, 0.5);
-        dt[i - a] = 0.01 * sqrt(softening / a_mag);
+        dt[i - a] = 0.1 * sqrt(softening / a_mag);
     }
     int n_dt = sizeof(dt) / sizeof(dt[0]);
     min_dt = *min_element(dt, dt + n_dt);
