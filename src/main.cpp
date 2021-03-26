@@ -81,8 +81,8 @@ int main(int argc, char **argv) {
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
 
-    snprintf(filename, sizeof(filename), "test_after_f.dat");
-    if (myid == 0) write_file(bodies, filename, dt, 0);
+    //snprintf(filename, sizeof(filename), "test_after_f.dat");
+    //if (myid == 0) write_file(bodies, filename, dt, 0);
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
