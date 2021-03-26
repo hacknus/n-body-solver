@@ -10,9 +10,8 @@
 
 using namespace std;
 
-void
-calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b, uint32_t ignore_bodies,
-                  float G) {
+void calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b,
+                  uint32_t ignore_bodies, float G) {
     double softening = 0.0001;
     double x, y, z;
 
@@ -68,7 +67,7 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
             vector<Body> recv;
             recv.resize(b - a);
             MPI_Recv(&recv.front(), recv.size(), mpi_body_type, proc, tag, MPI_COMM_WORLD, &status);
-            copy(recv.begin(), recv.end(), bodies.begin() + bodies.size() / num_procs * proc);
+            copy(begin(recv), end(recv), begin(bodies) + bodies.size() / num_procs * proc);
         }
     } else {
         vector<Body> send;
