@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     vector<Body> bodies;
 
     // create MPI_Datatype to broadcast vector of custom structs
-    MPI_Datatype mpi_body_type = make_mpi_type();
+    MPI_Datatype MPI_BODY_TYPE = make_mpi_type();
 
     vector<Body>::size_type a, b;
     double t = 0;
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
     MPI_Bcast(&size, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     if (myid != 0) bodies.resize(size); // sub-processes resize their vector
     // broadcast bodies vector with initial conditions from root-process to sub-processes
-    MPI_Bcast(&bodies.front(), size, mpi_body_type, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&bodies.front(), size, MPI_BODY_TYPE, 0, MPI_COMM_WORLD);
 
     // broadcast configuration parameters
     MPI_Bcast(&num_steps, 1, MPI_UNSIGNED_LONG_LONG, 0, MPI_COMM_WORLD);
@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
     for (int step = 0; step < num_steps; step++) {
         if (dt == 0) dt = get_dt(bodies, a, b);
         t += dt;
-        leapfrog(bodies, dt, num_procs, myid, mpi_body_type, ignore_bodies, G);
+        leapfrog(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G);
 
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
     if (myid == 0) cout << "[OK] simulation completed after " << num_steps << " steps \n";
     if (myid == 0) cout << "\n|-------------------------------------------|\n\n";
 
-    MPI_Type_free(&mpi_body_type);
+    MPI_Type_free(&MPI_BODY_TYPE);
     MPI_Finalize();
 
     return 0;

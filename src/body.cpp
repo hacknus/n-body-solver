@@ -19,7 +19,7 @@ void init_body(Body *b, double _m, double _x, double _y, double _z, double _vx, 
 };
 
 MPI_Datatype make_mpi_type() {
-    MPI_Datatype mpi_body_type;
+    MPI_Datatype MPI_BODY_TYPE;
     const int nitems = 10;
     int blocklengths[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     MPI_Datatype types[10] = {MPI_DOUBLE, MPI_DOUBLE, MPI_DOUBLE, MPI_DOUBLE,
@@ -38,7 +38,7 @@ MPI_Datatype make_mpi_type() {
     offsets[8] = offsetof(Body, ay);
     offsets[9] = offsetof(Body, az);
 
-    MPI_Type_create_struct(nitems, blocklengths, offsets, types, &mpi_body_type);
-    MPI_Type_commit(&mpi_body_type);
-    return mpi_body_type;
+    MPI_Type_create_struct(nitems, blocklengths, offsets, types, &MPI_BODY_TYPE);
+    MPI_Type_commit(&MPI_BODY_TYPE);
+    return MPI_BODY_TYPE;
 }

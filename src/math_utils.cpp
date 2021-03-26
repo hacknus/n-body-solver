@@ -48,7 +48,7 @@ void calc_direct_force(vector<Body> &bodies, vector<Body>::size_type a, vector<B
 }
 
 void
-leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype mpi_body_type,
+leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype MPI_BODY_TYPE,
          unsigned long int ignore_bodies, float G) {
     vector<Body>::size_type a = floor(bodies.size() / num_procs * myid);
     vector<Body>::size_type b = floor(bodies.size() / num_procs * (myid + 1));
@@ -70,17 +70,17 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
             ai = floor(bodies.size() / num_procs * proc);
             bi = floor(bodies.size() / num_procs * (proc + 1));
             recv.resize(bi - ai);
-            MPI_Recv(&recv.front(), recv.size(), mpi_body_type, proc, tag, MPI_COMM_WORLD, &status);
+            MPI_Recv(&recv.front(), recv.size(), MPI_BODY_TYPE, proc, tag, MPI_COMM_WORLD, &status);
             copy(begin(recv), end(recv), begin(bodies) + ai);
         }
     } else {
         vector<Body> send;
         send = vector<Body>(bodies.begin() + a, bodies.begin() + b);
-        MPI_Send(&send.front(), send.size(), mpi_body_type, 0, tag, MPI_COMM_WORLD);
+        MPI_Send(&send.front(), send.size(), MPI_BODY_TYPE, 0, tag, MPI_COMM_WORLD);
     }
 
     // distribute combined body slices to all sub-processes from root-processes
-    MPI_Bcast(&bodies.front(), bodies.size(), mpi_body_type, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&bodies.front(), bodies.size(), MPI_BODY_TYPE, 0, MPI_COMM_WORLD);
 
     calc_direct_force(bodies, a, b, ignore_bodies, G);
 
