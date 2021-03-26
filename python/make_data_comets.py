@@ -2,7 +2,6 @@ from astroquery.jplhorizons import Horizons
 import numpy as np
 import pandas as pd
 
-
 np.random.seed(0)
 
 dic = {
@@ -41,7 +40,6 @@ for i, m in zip(ids_planets, masses_planets):
 df = pd.read_csv("jfc_comets.csv")
 jfc_ids = np.random.choice(np.array(df.spkid, dtype=np.int), 100)
 ids_comets = [13699] + list(jfc_ids)
-
 
 print(ids_comets)
 for i in ids_comets:

@@ -26,7 +26,7 @@ def read_collision_data(filename="dubinski.tab"):
     mask = gal_disk + and_disk + gal_bulge + and_bulge + gal_halo + and_halo
     df = df.loc[mask]
     df["m"] = df.m * 1 / fac
-    #df.reset_index(inplace=True)
+    # df.reset_index(inplace=True)
     print(df.head())
     print(f"saving {len(df)} objects to cdata.csv")
     df.to_csv("../input/milky_way_andromeda.csv")
