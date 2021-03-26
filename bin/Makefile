@@ -4,11 +4,11 @@
 
 
 #------------------
-CC = CC
+CC = mpic++
 
 # CC compilation options
 #-----------------------------
-CFLAGS = -I../inc -O3 -ffast-math
+CFLAGS = -I../inc -O3 -std=c++17 -ffast-math
 
 # Linker options
 #---------------
@@ -24,13 +24,13 @@ SRCDIR = ../src
 OBJ = body.o io.o math_utils.o main.o
 
 main:  $(OBJ)
-	$(CC) $(LDFLAGS) $(OBJ) -o main
+	$(CC) $(LDFLAGS) $(OBJ) -o nbody
 
 clean:
 	rm -f *.o *.mod
 
 cleanall:
-	rm -f *.o *.mod main main_out.*
+	rm -f *.o *.mod nbody main_out.*
 
 %.o:    $(SRCDIR)/%.cpp
 	$(CC) $(CFLAGS) -c $<
