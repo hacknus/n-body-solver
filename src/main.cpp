@@ -28,6 +28,9 @@ int main(int argc, char **argv) {
     // create MPI_Datatype to broadcast vector of custom structs
     MPI_Datatype mpi_body_type = make_mpi_type();
 
+
+    double t = 0;
+    char filename[32]; // make sure it's big enough
     uint64_t num_steps = 0;
     double dt = 0;
     uint32_t save_interval = 0;
@@ -71,19 +74,19 @@ int main(int argc, char **argv) {
         cout << "\n|-------------------------------------------|\n\n";
     }
 
-    write_file(bodies, "test_before_f.dat", dt, 0);
+
+
+    snprintf(filename, sizeof(filename), "test_before_f.dat");
+    write_file(bodies, filename, dt, 0);
 
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
 
-    write_file(bodies, "test_after_f.dat", dt, 0);
+    snprintf(filename, sizeof(filename), "test_after_f.dat");
+    write_file(bodies, filename, dt, 0);
 
     vector<Body>::size_type a = bodies.size() / num_procs * myid;
     vector<Body>::size_type b = bodies.size() / num_procs * (myid + 1);
-
-    double t = 0;
-
-    char filename[32]; // make sure it's big enough
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
