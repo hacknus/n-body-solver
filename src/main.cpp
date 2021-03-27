@@ -12,7 +12,17 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
+    vector<Body> bodies;
+    vector<Body>::size_type a, b;
     int num_procs, myid;
+    unsigned long int save_interval = 0;
+    unsigned long int ignore_bodies = 0;
+    unsigned long long int num_steps = 0;
+    unsigned long int size;
+    char filename[128]; // make sure it's big enough
+    double dt = 0;
+    double t = 0;
+    float G = 1;
 
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
@@ -24,19 +34,8 @@ int main(int argc, char **argv) {
         cout << "|-------------------------------------------|\n";
     }
 
-    vector<Body> bodies;
-
     // create MPI_Datatype to broadcast vector of custom structs
     MPI_Datatype MPI_BODY_TYPE = make_mpi_type();
-
-    vector<Body>::size_type a, b;
-    double t = 0;
-    char filename[128]; // make sure it's big enough
-    unsigned long long int num_steps = 0;
-    double dt = 0;
-    unsigned long int save_interval = 0;
-    unsigned long int ignore_bodies = 0;
-    float G = 1;
 
     if (myid == 0) {
         // only root process reads the input file
@@ -52,7 +51,7 @@ int main(int argc, char **argv) {
         bodies = read_initial(path, G);
     }
 
-    unsigned long int size = bodies.size();
+    size = bodies.size();
 
     // broadcast size of bodies vector of root-process to all sub-processes
     MPI_Bcast(&size, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
@@ -69,7 +68,6 @@ int main(int argc, char **argv) {
 
     a = floor((float)bodies.size() / (float)num_procs * myid);
     b = floor((float)bodies.size() / (float)num_procs * (myid + 1));
-
 
     if (myid == 0) {
         cout << "[OK] found " << size << " bodies" << "\n";
