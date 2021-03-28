@@ -75,7 +75,7 @@ while True:
 
     # if j >= 100:
     #     break
-    if j % 1000 == 0:
+    if j % 2000 == 0:
         if not os.path.exists(f'../output/out_{j:07d}.dat'):
             break
         print(f'reading out_{j:07d}.bin')
