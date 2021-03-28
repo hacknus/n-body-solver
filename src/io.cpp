@@ -10,7 +10,7 @@
 #include <string>
 
 void get_initial_values(string *path, unsigned long long int *steps, double *dt, unsigned long int *save_interval,
-                        unsigned long int *ignore_bodies,  float *G) {
+                        unsigned long int *ignore_bodies, float *G, float &softening) {
     string input_path = "../input/input.conf";
 
     // std::ifstream is RAII, i.e. no need to call close
@@ -31,6 +31,7 @@ void get_initial_values(string *path, unsigned long long int *steps, double *dt,
             if (name == "save_interval") *save_interval = stoul(value.c_str());
             if (name == "ignore_bodies") *ignore_bodies = stoul(value.c_str());
             if (name == "G") *G = stof(value.c_str());
+            if (name == "softening") *softening = stof(value.c_str());
         }
     } else {
         cout << "[ERROR] no input file in : '" << input_path << "'!\n";

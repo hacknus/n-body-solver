@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
     double dt = 0;
     double t = 0;
     float G = 1;
+    float softening = 0.01;
 
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
@@ -40,13 +41,14 @@ int main(int argc, char **argv) {
     if (myid == 0) {
         // only root process reads the input file
         string path;
-        get_initial_values(&path, &num_steps, &dt, &save_interval, &ignore_bodies, &G);
+        get_initial_values(&path, &num_steps, &dt, &save_interval, &ignore_bodies, &G, &softening);
         cout << "[OK] path for initial conditions is: " << path << "\n";
         cout << "[OK] simulation steps: " << num_steps << "\n";
         cout << "[OK] dt (internal calculation if 0): " << dt << "\n";
         cout << "[OK] save interval is: " << save_interval << "\n";
         cout << "[OK] ignoring bodies: " << ignore_bodies << "\n";
         cout << "[OK] G is: " << G << "\n";
+        cout << "[OK] softening is: " << softening << "\n";
         // read initial file
         bodies = read_initial(path, G);
     }
@@ -65,25 +67,27 @@ int main(int argc, char **argv) {
     MPI_Bcast(&save_interval, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&ignore_bodies, 1, MPI_UNSIGNED_LONG, 0, MPI_COMM_WORLD);
     MPI_Bcast(&G, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&softening, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
-    a = floor((float)bodies.size() / (float)num_procs * myid);
-    b = floor((float)bodies.size() / (float)num_procs * (myid + 1));
+    a = floor((float) bodies.size() / (float) num_procs * myid);
+    b = floor((float) bodies.size() / (float) num_procs * (myid + 1));
 
     if (myid == 0) {
         cout << "[OK] found " << size << " bodies" << "\n";
         cout << "[OK] starting simulation: \n"
                 "     for " << num_steps << " steps \n "
-                "     on " << num_procs << " cores. \n";
+                                            "     on " << num_procs << " cores. \n";
         cout << "\n|-------------------------------------------|\n\n";
     }
     // calculate forces (accelerations) once in order to determine initial time-step
-    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G);
+    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G), softening;
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
-        if (dt == 0) dt = get_dt(bodies, a, b);
+        if (dt == 0) dt = get_dt(bodies, a, b, softening);
         t += dt;
-        leapfrog(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G);
+        leapfrog(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G
+        softening);
 
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
