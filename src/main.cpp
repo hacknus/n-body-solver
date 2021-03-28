@@ -80,14 +80,13 @@ int main(int argc, char **argv) {
         cout << "\n|-------------------------------------------|\n\n";
     }
     // calculate forces (accelerations) once in order to determine initial time-step
-    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G), softening;
+    calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G, softening);
 
     // begin simulation
     for (int step = 0; step < num_steps; step++) {
         if (dt == 0) dt = get_dt(bodies, a, b, softening);
         t += dt;
-        leapfrog(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G
-        softening);
+        leapfrog(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G, softening);
 
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
