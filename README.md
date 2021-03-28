@@ -17,8 +17,9 @@ assuming that the binary nbody is located in a bin or cmake-build-debug folder.
 The parameter `ignore_bodies` determines how many bodies are ignored when calculating the force on other bodies.
 This is useful for small bodies like satellites, comets or asteroids that do not exert a force on large bodies such as planets.
 For `ignore_bodies=62` the last 62 bodies of the dataset are ignored. 
-This code has also been tested on the Piz Daint supercomputer at CSCS. There is a makefile in the `bin` folder.
+This code has also been tested on a CRAY supercomputer. There is a makefile in the `bin` folder.
 
+There are two example initial conditions in the `input` folder, `milky_way_andromeda.csv` (dubinski dataset) and `solar_jfc.csv` (solar system with jupiter-family-comets), both with their corresponding `input.conf`files.
 ## Usage:
 First create a `input/input.conf` file based on the two examples. Then build the project using CMake or the Makefile in `bin` folder.
 Then run:
