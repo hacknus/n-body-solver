@@ -98,7 +98,6 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
 double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b, float softening) {
 
     double dt[b - a];
-    double softening = 0.1;
     double min_dt;
     double min_dt_out = 0.001;
     double a_mag;
