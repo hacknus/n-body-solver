@@ -1,7 +1,8 @@
 # n-body-solver in c++
 
 A simple implementation of an n-body-solver written in c++ by using direct force calculation. Leapfrog is used as an integrating scheme.
-
+A simulation of the solar system and JFC (Jupiter-Family-Comets) is shown here:
+![](python/comets_example.mp4)
 This program was developed on CLion (with CMake) on macOS and uses [openMPI](https://www.open-mpi.org) to parallelise the calculation.
 The program will read some configuration parameters from the file `input/input.conf` which can look as follows:
 ```
