@@ -93,6 +93,26 @@ leapfrog(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
         bodies[i].z = bodies[i].z + bodies[i].vz * 0.5 * dt;
     }
 
+    // gather all partial body slices from sub-processes on root-process
+    const int tag2 = 12;
+    if (myid == 0) {
+        MPI_Status status;
+        vector<Body>::size_type ai;
+        vector<Body>::size_type bi;
+        for (int proc = 1; proc < num_procs; proc++) {
+            vector<Body> recv;
+            ai = floor((float) bodies.size() / (float) num_procs * proc);
+            bi = floor((float) bodies.size() / (float) num_procs * (proc + 1));
+            recv.resize(bi - ai);
+            MPI_Recv(&recv.front(), recv.size(), MPI_BODY_TYPE, proc, tag2, MPI_COMM_WORLD, &status);
+            copy(begin(recv), end(recv), begin(bodies) + ai);
+        }
+    } else {
+        vector<Body> send;
+        send = vector<Body>(bodies.begin() + a, bodies.begin() + b);
+        MPI_Send(&send.front(), send.size(), MPI_BODY_TYPE, 0, tag2, MPI_COMM_WORLD);
+    }
+
 }
 
 double get_dt(vector<Body> &bodies, vector<Body>::size_type a, vector<Body>::size_type b, float softening) {
