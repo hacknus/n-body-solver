@@ -4,7 +4,9 @@
 
 
 #------------------
-CC = CC
+# CC=CC for cray system on CSCS
+# CC=mpic++ on macOS
+CC = mpic++
 
 # CC compilation options
 #-----------------------------
