@@ -61,7 +61,7 @@ while True:
     if j % 10 == 0:
         if not os.path.exists(f'../output/out_{j:07d}.dat'):
             break
-        print(f'reading out_{j:07d}.bin')
+        print(f'reading out_{j:07d}.dat')
         master_file = f'../output/out_{j:07d}.dat'
         df = read_binary(master_file)
         if j == 0:
@@ -110,8 +110,8 @@ plt.axhline(2, color="red", ls="--")
 plt.axhline(3, color="red", ls="--")
 plt.ylim(0, 5)
 plt.xlabel(r"$n$ Jupiter Orbits")
-plt.ylabel(r"$T_{Jupiter}$")
-plt.savefig("comets_rev.pdf")
+plt.ylabel(r"$T_{Jupit  er}$")
+plt.savefig("comets.pdf")
 plt.clf()
 plt.plot(np.arange(len(orbits)) * num_orbits, np.mean(tisserand, axis=0), color="black", ls="--")
 plt.axhline(2, color="red", ls="--")
@@ -119,4 +119,4 @@ plt.axhline(3, color="red", ls="--")
 plt.ylim(0, 5)
 plt.xlabel(r"$n$ Jupiter Orbits")
 plt.ylabel(r"$T_{Jupiter}$")
-plt.savefig("comets_mean_rev.pdf")
+plt.savefig("comets_mean.pdf")

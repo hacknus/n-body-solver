@@ -40,12 +40,12 @@ def read_binary(path):
     # (num_planets, num_params)
     x = x.reshape((x.shape[0] // 9, 9))
 
-    d = {"x": x[:, 0],
-         "y": x[:, 1],
-         "z": x[:, 2],
-         "vx": x[:, 3],
-         "vy": x[:, 4],
-         "vz": x[:, 5],
+    d = {"x": x[:, 1],
+         "y": x[:, 2],
+         "z": x[:, 3],
+         "vx": x[:, 4],
+         "vy": x[:, 5],
+         "vz": x[:, 6],
          }
     df = pd.DataFrame(data=d)
     return df
@@ -62,22 +62,23 @@ j = 0
 ThreeD = False
 
 while True:
-    if not os.path.exists(f'out{j:07d}.dat'):
-        break
-    # print(f'reading out{j:07d}.dat')
-    master_file = f'out{j:07d}.dat'
+    try:
+        if j % 1000 == 0:
+            if not os.path.exists(f'../output/out_{j:07d}.dat'):
+                break
+            print(f'reading out_{j:07d}.dat')
+            master_file = f'../output/out_{j:07d}.dat'
+            df = read_binary(master_file)
+            if j == 0:
+                for i in range(len(df)):
+                    planets.append(Planet(df.loc[i]))
+            else:
+                for i in range(len(df)):
+                    planets[i].add(df.loc[i])
+        j += 1
 
-    # if j >= 100:
-    #     break
-    if j % 10 == 0:
-        df = read_binary(master_file)
-        if j == 0:
-            for i in range(len(df)):
-                planets.append(Planet(df.loc[i]))
-        else:
-            for i in range(len(df)):
-                planets[i].add(df.loc[i])
-    j += 1
+    except KeyboardInterrupt:
+        break
 if j == 0:
     print("no files found, exiting...")
     exit()
@@ -154,9 +155,9 @@ def animate(i):
         y = planet.y[i]  # planet[1][i]
         z = planet.z[i]  # planet[2][i]
 
-        xline = planet.x[i-10:i]  # planet[0][:i]
-        yline = planet.y[i-10:i]  # planet[1][:i]
-        zline = planet.z[i-10:i]  # planet[2][:i]
+        xline = planet.x[i - 10:i]  # planet[0][:i]
+        yline = planet.y[i - 10:i]  # planet[1][:i]
+        zline = planet.z[i - 10:i]  # planet[2][:i]
 
         pt.set_data(x, y)
         if ThreeD:
@@ -203,14 +204,18 @@ ax.set_ylim(-2, 2)
 
 x = np.max([abs(p.x[0]) for p in planets])
 y = np.max([abs(p.y[0]) for p in planets])
+print(x, y)
 ax.set_xlim(-1 * x, 1 * x)
 ax.set_ylim(-1 * y, 1 * y)
+
+ax.set_xlim(-7 * AU, 7 * AU)
+ax.set_ylim(-7 * AU, 7 * AU)
 
 if ThreeD:
     ax.set_zlim(-size, size)
     ax.set_zlim(-10, 10)
 
-gif = True
+gif = False
 mp4 = True  # True
 show = False
 
@@ -224,12 +229,12 @@ ani = animation.FuncAnimation(fig, animate, init_func=init,
 # save animation
 if gif:
     print("saving gif...")
-    ani.save('galaxy.gif', savefig_kwargs={'facecolor': 'black'}, writer='imagemagick', dpi=100)
+    ani.save('comets.gif', savefig_kwargs={'facecolor': 'black'}, writer='imagemagick', dpi=100)
 if mp4:
     # needs ffmpeg to be installed
     mywriter = animation.FFMpegWriter(fps=24)
     print("saving mp4...")
-    ani.save('galaxy_mpi.mp4', savefig_kwargs={'facecolor': 'black'}, writer=mywriter, dpi=600)
+    ani.save('comets.mp4', savefig_kwargs={'facecolor': 'black'}, writer=mywriter, dpi=600)
 if show:
     print("showing")
     plt.show()
