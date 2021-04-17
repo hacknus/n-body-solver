@@ -3,6 +3,7 @@
 
 # all output files should be ignored
 /output/
+/output_rev/
 
 # ignore all binaries (bin folder is used by CSCS supercomputer)
 /bin/
