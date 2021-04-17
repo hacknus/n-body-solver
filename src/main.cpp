@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
             //              propagated further than all the others. This deviation is minimal and
             //              not visible when plotting the orbits.
             cout << "[OK] step " << step << "/" << num_steps << " completed.\n";
-            snprintf(filename, sizeof(filename), "../output/out_%07d.dat", step);
+            snprintf(filename, sizeof(filename), "../output/out_%09d.dat", step);
             write_file(bodies, filename, dt, t);
         }
     }
