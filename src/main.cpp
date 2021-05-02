@@ -91,14 +91,14 @@ int main(int argc, char **argv) {
         if (calc_dt == 1) dt = get_dt(bodies, a, b, softening);
         t += dt;
         rk4(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G, softening);
-
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
             // important:   the slice of the bodies that are distributed to the root process are already dt/2
             //              propagated further than all the others. This deviation is minimal and
             //              not visible when plotting the orbits.
             // cout << "[OK] step " << step << "/" << num_steps << " completed.\n";
-            cout << "[OK] t= " << t << "/" << (double)(3600.0 * 24.0 * 365.0 * 12.0 * 2000.0) << " completed.\n";
+            cout << "[OK] t = " << t << "/" << (double)(3600.0 * 24.0 * 365.0 * 12.0 * 2000.0) << " completed.\n";
+            cout << "     step = " << step << " completed.\n";
             snprintf(filename, sizeof(filename), "../output_rev/out_%09d.dat", step);
             write_file(bodies, filename, dt, t);
         }

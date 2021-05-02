@@ -203,9 +203,9 @@ void rk4(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
     rk_accel(bodies_temp, a, b, ignore_bodies, G, softening, ax2, ay2, az2);
 
     for (vector<Body>::size_type i = a; i < b; i++) {
-        vx2[i] = bodies[i].vx + ax1[i] * dt;
-        vy2[i] = bodies[i].vy + ay1[i] * dt;
-        vz2[i] = bodies[i].vz + az1[i] * dt;
+        vx2[i] = bodies[i].vx + ax1[i] * 0.5 * dt;
+        vy2[i] = bodies[i].vy + ay1[i] * 0.5 * dt;
+        vz2[i] = bodies[i].vz + az1[i] * 0.5 * dt;
         bodies_temp[i].x = bodies[i].x + vx2[i] * 0.5 * dt;
         bodies_temp[i].y = bodies[i].y + vy2[i] * 0.5 * dt;
         bodies_temp[i].z = bodies[i].z + vz2[i] * 0.5 * dt;
@@ -215,18 +215,16 @@ void rk4(vector<Body> &bodies, double dt, int num_procs, int myid, MPI_Datatype 
     rk_accel(bodies_temp, a, b, ignore_bodies, G, softening, ax3, ay3, az3);
 
     for (vector<Body>::size_type i = a; i < b; i++) {
-        vx3[i] = bodies[i].vx + ax2[i] * dt;
-        vy3[i] = bodies[i].vy + ay2[i] * dt;
-        vz3[i] = bodies[i].vz + az2[i] * dt;
-        bodies_temp[i].x = bodies[i].x + vx3[i] * 0.5 * dt;
-        bodies_temp[i].y = bodies[i].y + vy3[i] * 0.5 * dt;
-        bodies_temp[i].z = bodies[i].z + vz3[i] * 0.5 * dt;
+        vx3[i] = bodies[i].vx + ax2[i] * 0.5 * dt;
+        vy3[i] = bodies[i].vy + ay2[i] * 0.5 * dt;
+        vz3[i] = bodies[i].vz + az2[i] * 0.5 * dt;
+        bodies_temp[i].x = bodies[i].x + vx3[i] * dt;
+        bodies_temp[i].y = bodies[i].y + vy3[i] * dt;
+        bodies_temp[i].z = bodies[i].z + vz3[i] * dt;
     }
 
+    sync(bodies_temp, num_procs, myid, MPI_BODY_TYPE);
     rk_accel(bodies_temp, a, b, ignore_bodies, G, softening, ax4, ay4, az4);
-
-
-    sync(bodies, num_procs, myid, MPI_BODY_TYPE);
 
     for (vector<Body>::size_type i = a; i < b; i++) {
         vx4[i] = bodies[i].vx + ax4[i] * dt;
