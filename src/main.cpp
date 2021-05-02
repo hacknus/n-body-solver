@@ -15,6 +15,7 @@ int main(int argc, char **argv) {
     vector<Body> bodies;
     vector<Body>::size_type a, b;
     int num_procs, myid;
+    int calc_dt = 0;
     unsigned long int save_interval = 0;
     unsigned long int ignore_bodies = 0;
     unsigned long long int num_steps = 0;
@@ -82,24 +83,30 @@ int main(int argc, char **argv) {
     // calculate forces (accelerations) once in order to determine initial time-step
     calc_direct_force(bodies, 0, bodies.size(), ignore_bodies, G, softening);
 
+    if (dt == 0) calc_dt = 1;
     // begin simulation
-    for (int step = 0; step < num_steps; step++) {
-        if (dt == 0) dt = get_dt(bodies, a, b, softening);
+    //for (int step = 0; step < num_steps; step++) {
+    int step = 0;
+    while (t < (double)(3600.0 * 24.0 * 365.0 * 12.0 * 2000.0)){
+        if (calc_dt == 1) dt = get_dt(bodies, a, b, softening);
         t += dt;
-        leapfrog(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G, softening);
+        rk4(bodies, dt, num_procs, myid, MPI_BODY_TYPE, ignore_bodies, G, softening);
 
         if ((myid == 0) && (step % save_interval == 0)) {
             // only root process saves all the data
             // important:   the slice of the bodies that are distributed to the root process are already dt/2
             //              propagated further than all the others. This deviation is minimal and
             //              not visible when plotting the orbits.
-            cout << "[OK] step " << step << "/" << num_steps << " completed.\n";
-            snprintf(filename, sizeof(filename), "../output/out_%09d.dat", step);
+            // cout << "[OK] step " << step << "/" << num_steps << " completed.\n";
+            cout << "[OK] t= " << t << "/" << (double)(3600.0 * 24.0 * 365.0 * 12.0 * 2000.0) << " completed.\n";
+            snprintf(filename, sizeof(filename), "../output_rev/out_%09d.dat", step);
             write_file(bodies, filename, dt, t);
         }
+        step += 1;
     }
 
-    if (myid == 0) cout << "[OK] simulation completed after " << num_steps << " steps \n";
+    if (myid == 0) cout << "[OK] simulation completed after " << step << " steps \n";
+    if (myid == 0) cout << "[OK] simulation completed at t = " << t << " \n";
     if (myid == 0) cout << "\n|-------------------------------------------|\n\n";
 
     MPI_Type_free(&MPI_BODY_TYPE);

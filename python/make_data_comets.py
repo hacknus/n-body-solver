@@ -1,6 +1,7 @@
 from astroquery.jplhorizons import Horizons
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 np.random.seed(0)
 
@@ -17,7 +18,7 @@ dic = {
 
 ids_planets = ["Sun", 199, 299, 399, 499, 599, 699, 799, 899]
 masses_planets = [1, 1.6601367952719304e-07, 2.447838938855945e-06, 3.0034895963231186e-06,
-                  3.2271514450538743e-07, 0.0009547919384243222, 0.0002858859806661029,
+                  3.2271514450538743e-07, 0.0002858859806661029, 0.0009547919384243222,
                   4.3662440433515637e-05, 5.151389020535497e-05]
 
 for i, m in zip(ids_planets, masses_planets):
@@ -56,7 +57,7 @@ for i in ids_comets:
         # print(e)
         continue
     dic["name"].append(row["targetname"])
-    dic["m"].append(1e-20)
+    dic["m"].append(1/(2e30))
     dic["x"].append(row["x"])
     dic["y"].append(row["y"])
     dic["z"].append(row["z"])
@@ -66,4 +67,7 @@ for i in ids_comets:
 
 df = pd.DataFrame(data=dic)
 print(df)
-df.to_csv("../input/solar_jfc.csv", index=False)
+# plt.scatter(df.x[:9], df.y[:9], color="red")
+# plt.scatter(df.x[9:], df.y[9:], color="yellow")
+# plt.show()
+df.to_csv("../input/solar_jfc_rev.csv", index=False)
