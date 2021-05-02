@@ -9,6 +9,7 @@
 
 struct Body {
     double m;
+    double epot, ekin;
     double x, y, z;
     double vx, vy, vz;
     double ax, ay, az;

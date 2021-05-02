@@ -16,6 +16,8 @@ void init_body(Body *b, double _m, double _x, double _y, double _z, double _vx, 
     b->ax = 0.0;
     b->ay = 0.0;
     b->az = 0.0;
+    b->epot = 0.0;
+    b->ekin = 0.0;
 };
 
 MPI_Datatype make_mpi_type() {
